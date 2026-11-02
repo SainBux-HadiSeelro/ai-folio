@@ -18,71 +18,133 @@ st.set_page_config(
 # ==========================================
 st.markdown("""
 <style>
-    /* Global Styles */
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
     
-    html, body, [class*="css"] {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+    html, body, [class*="css"], .stApp {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    
-    /* Main Background Accent */
+
+    /* Global Dark Canvas */
     .stApp {
-        background: radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
-                    radial-gradient(circle at 85% 85%, rgba(138, 43, 226, 0.06) 0%, transparent 45%),
-                    #0b0f19;
-        color: #e2e8f0;
+        background: radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 90%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+                    #090d16 !important;
+        color: #f8fafc !important;
+    }
+
+    /* Universal High-Contrast Typography */
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.01em;
     }
     
+    p, span, li, [data-testid="stMarkdownContainer"] p {
+        color: #e2e8f0 !important;
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    strong {
+        color: #38bdf8 !important;
+    }
+
     /* Sidebar Styling */
     [data-testid="stSidebar"] {
-        background-color: #0d1322 !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.07);
+        background-color: #0b1120 !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
-    
-    /* Glowing Hero Card */
+
+    [data-testid="stSidebar"] [data-testid="stWidgetLabel"] p {
+        color: #38bdf8 !important;
+        font-weight: 700 !important;
+        font-size: 0.95rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    [data-testid="stSidebar"] [role="radiogroup"] label {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.2s ease;
+    }
+
+    [data-testid="stSidebar"] [role="radiogroup"] label:hover {
+        background: rgba(56, 189, 248, 0.1);
+        border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    [data-testid="stSidebar"] [role="radiogroup"] label div p {
+        color: #f1f5f9 !important;
+        font-weight: 500 !important;
+    }
+
+    /* Input Fields & Labels */
+    [data-testid="stWidgetLabel"] p, [data-testid="stWidgetLabel"] label {
+        color: #f8fafc !important;
+        font-weight: 600 !important;
+        font-size: 0.92rem !important;
+        margin-bottom: 6px !important;
+    }
+
+    input, textarea, select {
+        color: #ffffff !important;
+        background-color: #131c2e !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 8px !important;
+    }
+
+    input:focus, textarea:focus {
+        border-color: #38bdf8 !important;
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2) !important;
+    }
+
+    /* Modern Hero Banner */
     .hero-card {
-        background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(15, 23, 42, 0.7));
-        border: 1px solid rgba(0, 242, 254, 0.2);
-        box-shadow: 0 8px 32px 0 rgba(0, 242, 254, 0.08);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 25px rgba(56, 189, 248, 0.1);
         border-radius: 16px;
-        padding: 30px;
+        padding: 32px 36px;
         margin-bottom: 24px;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
         font-weight: 800;
-        background: linear-gradient(90deg, #00f2fe 0%, #4facfe 50%, #9d4edd 100%);
+        background: linear-gradient(90deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
     }
-    
+
     .hero-subtitle {
         font-size: 1.15rem;
-        color: #94a3b8;
+        color: #f1f5f9 !important;
         font-weight: 400;
-        line-height: 1.6;
+        line-height: 1.7;
     }
-    
+
     /* Live Status Badge */
     .agent-pill {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(16, 185, 129, 0.12);
-        border: 1px solid rgba(16, 185, 129, 0.35);
-        color: #10b981;
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.45);
+        color: #34d399 !important;
         padding: 6px 14px;
         border-radius: 9999px;
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         font-weight: 600;
-        letter-spacing: 0.03em;
-        margin-top: 10px;
+        margin-bottom: 12px;
     }
-    
+
     .pulse-dot {
         width: 8px;
         height: 8px;
@@ -90,65 +152,135 @@ st.markdown("""
         border-radius: 50%;
         box-shadow: 0 0 10px #10b981;
     }
-    
-    /* Feature & Metric Cards */
+
+    /* Sleek Metric Cards */
     .metric-card {
-        background: rgba(17, 24, 39, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: #111a2e;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
-        padding: 18px;
+        padding: 22px 16px;
         text-align: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         transition: transform 0.2s ease, border-color 0.2s ease;
     }
+    
     .metric-card:hover {
         transform: translateY(-2px);
-        border-color: rgba(0, 242, 254, 0.4);
+        border-color: #38bdf8;
     }
+
     .metric-value {
-        font-size: 1.9rem;
+        font-size: 2.1rem;
         font-weight: 800;
-        color: #00f2fe;
+        color: #38bdf8 !important;
+        letter-spacing: -0.02em;
     }
+
     .metric-label {
-        font-size: 0.85rem;
-        color: #94a3b8;
-        font-weight: 500;
-        margin-top: 4px;
+        font-size: 0.88rem;
+        color: #cbd5e1 !important;
+        font-weight: 600;
+        margin-top: 6px;
     }
-    
-    /* Project Card */
+
+    /* Project Cards */
     .project-card {
-        background: rgba(15, 23, 42, 0.65);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #111a2e;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 14px;
-        padding: 22px;
+        padding: 24px;
         margin-bottom: 18px;
-        transition: all 0.25s ease-in-out;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s ease-in-out;
     }
+
     .project-card:hover {
-        border-color: rgba(0, 242, 254, 0.3);
-        box-shadow: 0 8px 24px rgba(0, 242, 254, 0.05);
+        border-color: rgba(56, 189, 248, 0.4);
+        box-shadow: 0 8px 24px rgba(56, 189, 248, 0.08);
     }
-    
+
     .tag {
         display: inline-block;
-        padding: 3px 10px;
+        padding: 4px 12px;
         border-radius: 6px;
-        font-size: 0.75rem;
+        font-size: 0.78rem;
         font-weight: 600;
         margin-right: 6px;
         margin-bottom: 6px;
-        background: rgba(79, 172, 254, 0.12);
-        color: #4facfe;
-        border: 1px solid rgba(79, 172, 254, 0.25);
+        background: rgba(56, 189, 248, 0.12);
+        color: #38bdf8 !important;
+        border: 1px solid rgba(56, 189, 248, 0.3);
     }
-    
-    /* Chat Message Bubble enhancement */
+
+    /* Chat Messages */
     [data-testid="stChatMessage"] {
-        background-color: rgba(17, 24, 39, 0.6) !important;
+        background-color: #111a2e !important;
         border-radius: 12px !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
-        padding: 12px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding: 16px 20px !important;
+        margin-bottom: 12px !important;
+    }
+
+    [data-testid="stChatMessage"] p, [data-testid="stChatMessage"] li {
+        color: #f8fafc !important;
+        font-size: 1rem !important;
+        line-height: 1.65 !important;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        padding: 10px 20px;
+        background-color: #111a2e;
+        border-radius: 8px 8px 0 0;
+        color: #94a3b8 !important;
+        font-weight: 600;
+    }
+
+    .stTabs [aria-selected="true"] {
+        background-color: #0284c7 !important;
+        color: #ffffff !important;
+    }
+
+    /* Primary and Secondary Buttons */
+    .stButton > button {
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        padding: 8px 18px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .stButton > button[kind="primary"] {
+        background: linear-gradient(90deg, #0284c7 0%, #2563eb 100%) !important;
+        border: none !important;
+        color: #ffffff !important;
+    }
+
+    .stButton > button[kind="secondary"] {
+        background-color: #1a2234 !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        color: #f1f5f9 !important;
+    }
+
+    .stButton > button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25) !important;
+    }
+
+    /* Captions & Info alerts */
+    .stCaption, [data-testid="stCaptionContainer"] p {
+        color: #94a3b8 !important;
+        font-weight: 500 !important;
+    }
+
+    .stAlert {
+        background-color: #111a2e !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 10px !important;
     }
 </style>
 """, unsafe_allow_html=True)
