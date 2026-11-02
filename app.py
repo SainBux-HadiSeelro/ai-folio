@@ -670,9 +670,9 @@ def open_aura_chat_dialog():
     with st.expander("🔑 AI Mode: Live Gemini / Knowledge Base", expanded=False):
         st.caption("Aura operates 24/7. Add a free Gemini API key (or set `GEMINI_API_KEY` in Streamlit Secrets) to chat live with LLM:")
         user_key = st.text_input("Gemini API Key:", value=st.session_state.get("user_gemini_key", ""), type="password", placeholder="AIzaSy...", key="inp_gemini_key")
-        if user_key != st.session_state.get("user_gemini_key", ""):
+        if user_key and user_key != st.session_state.get("user_gemini_key", ""):
             st.session_state.user_gemini_key = user_key
-            st.rerun()
+            st.success("API Key connected!")
     
     # Message History Container (Compact & Scrollable)
     msg_box = st.container(height=260)
@@ -711,19 +711,27 @@ def open_aura_chat_dialog():
             "content": prompt,
             "time": current_time
         })
-        # 2. Generate Response
-        reply = generate_agent_response(prompt, st.session_state.messages)
+        # 2. Render directly in msg_box (Keeps dialog open!)
+        with msg_box:
+            with st.chat_message("user", avatar="👤"):
+                st.markdown(prompt)
+                st.caption(f"🕒 {current_time}")
+            with st.chat_message("assistant", avatar="🤖"):
+                with st.spinner("Analyzing with Aura AI..."):
+                    reply = generate_agent_response(prompt, st.session_state.messages)
+                    st.markdown(reply)
+                    st.caption(f"🕒 {current_time} • Verified by Aura Engine")
+        # 3. Save Assistant Message
         st.session_state.messages.append({
             "role": "assistant",
             "content": reply,
             "time": current_time
         })
-        st.rerun()
 
     if len(st.session_state.messages) > 1:
-        if st.button("🧹 Clear Chat", key="dlg_clear_chat", type="secondary"):
+        if st.button("🧹 Clear Chat History", key="dlg_clear_chat", type="secondary"):
             st.session_state.messages = [st.session_state.messages[0]]
-            st.rerun()
+            st.info("Chat cleared. You can start a fresh conversation above!")
 
 # ==========================================
 # 📌 SIDEBAR NAVIGATION & SYSTEM METRICS
