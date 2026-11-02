@@ -2,6 +2,10 @@ import streamlit as st
 import time
 import pandas as pd
 from datetime import datetime
+import requests
+import json
+import re
+import os
 
 # ==========================================
 # ⚙️ STREAMLIT PAGE CONFIGURATION
@@ -419,94 +423,217 @@ KNOWLEDGE_BASE = {
 # ==========================================
 # 🤖 INTELLIGENT AGENT ENGINE (24/7 OFFLINE & ONLINE)
 # ==========================================
-def generate_agent_response(user_input: str) -> str:
-    """
-    Intelligent response generation engine for Aura AI.
-    Features instant semantic intent matching, contextual synthesis,
-    and lead handling.
-    """
-    query = user_input.lower().strip()
+def get_gemini_api_key() -> str:
+    """Retrieve Gemini API key from session state, Streamlit secrets, or environment."""
+    if st.session_state.get("user_gemini_key"):
+        return st.session_state.user_gemini_key.strip()
+    try:
+        if "GEMINI_API_KEY" in st.secrets:
+            return st.secrets["GEMINI_API_KEY"].strip()
+    except Exception:
+        pass
+    return os.environ.get("GEMINI_API_KEY", "").strip()
+
+
+def query_gemini_api(user_query: str, history: list, api_key: str) -> str:
+    """Call Google Gemini 1.5 Flash API via REST endpoint."""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
     
-    # 1. Greetings & Identity
-    if any(k in query for k in ["hi", "hello", "hey", "salam", "aoa", "who are you", "koun ho"]):
+    system_instruction = (
+        "You are Aura, an elite, professional, and friendly 24/7 autonomous AI concierge representing Hadi Seelro. "
+        "Hadi is a Senior Agentic AI Systems Architect & Generative AI Engineer based in Pakistan, collaborating globally. "
+        "Hadi specializes in: "
+        "- Autonomous Multi-Agent Swarms (LangGraph, CrewAI, AutoGen) "
+        "- Enterprise Zero-Hallucination RAG Pipelines (ChromaDB, Pinecone, FAISS, Hybrid Search) "
+        "- Model Context Protocol (MCP) and custom tool execution "
+        "- Production LLM orchestration with Google Gemini 2.5/Flash, GPT-4o, and Claude 3.5 Sonnet "
+        "- Pricing tiers: MVP Agent ($1,500 - $3,000), Enterprise Swarms ($3,500 - $8,000), Consulting ($150/hr). "
+        "Hadi's contact: Email: hadi.seelro@example.com, LinkedIn: linkedin.com/in/hadiseelro, GitHub: github.com/hadiseelro. "
+        "Instructions: "
+        "1. Always reply in the exact language the user uses (English, Urdu, Roman Urdu, Hindi). "
+        "2. Answer ANY technical, architectural, pricing, timeline, coding, or general question intelligently and concisely. "
+        "3. If the user shares an idea or asks for project advice, provide actionable technical feedback and encourage hiring Hadi. "
+        "4. If the user provides their email or contact info, politely confirm that Hadi will contact them within 24 hours."
+    )
+    
+    contents = []
+    if history:
+        for msg in history[-6:]:
+            role = "user" if msg.get("role") == "user" else "model"
+            contents.append({
+                "role": role,
+                "parts": [{"text": msg.get("content", "")}]
+            })
+            
+    contents.append({
+        "role": "user",
+        "parts": [{"text": user_query}]
+    })
+    
+    payload = {
+        "systemInstruction": {"parts": [{"text": system_instruction}]},
+        "contents": contents,
+        "generationConfig": {
+            "temperature": 0.7,
+            "maxOutputTokens": 600
+        }
+    }
+    
+    headers = {"Content-Type": "application/json"}
+    resp = requests.post(url, json=payload, headers=headers, timeout=12)
+    if resp.status_code == 200:
+        res_json = resp.json()
+        return res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
+    else:
+        raise Exception(f"API Error {resp.status_code}: {resp.text}")
+
+
+def generate_local_nlp_response(user_input: str) -> str:
+    """
+    Comprehensive Local NLP & Intent Engine for Aura AI.
+    Handles general questions, tech advice, Urdu/English queries, pricing, and lead intake.
+    """
+    q = user_input.lower().strip()
+    
+    # 1. Lead / Email Detection (Instant capture)
+    email_match = re.search(r'[\w\.-]+@[\w\.-]+\.\w+', user_input)
+    if email_match:
+        st.session_state.lead_count = st.session_state.get("lead_count", 0) + 1
         return (
-            "👋 **Hello! I am Aura**, the 24/7 Autonomous AI Agent representing **Hadi Seelro**.\n\n"
-            "I have real-time access to Hadi's entire engineering portfolio, system specifications, "
-            "agentic AI services, and availability. \n\n"
-            "How can I assist you today? You can ask me:\n"
-            "- 💼 *What AI services and agents can Hadi build for you?*\n"
-            "- 📊 *Tell me about Hadi's LangGraph and CrewAI projects.*\n"
-            "- 💰 *How much does a custom AI agent system cost?*\n"
-            "- 📅 *How can I hire Hadi or schedule a technical consultation?*"
+            f"🎉 **Thank you! Contact details received:** `{email_match.group(0)}`\n\n"
+            f"I have logged your request into Hadi Seelro's intake buffer. "
+            f"Hadi will review your project requirements and email you directly within **24 hours** "
+            f"with an architectural breakdown and ballpark timeline.\n\n"
+            f"Feel free to share any additional details about your project or tech stack!"
         )
-        
-    # 2. Services & Offerings
-    elif any(k in query for k in ["service", "services", "offer", "kya karte ho", "build", "can you do"]):
+
+    # 2. Greetings, Small Talk & Well-wishes (English, Roman Urdu, Urdu)
+    if any(k in q for k in ["hi", "hello", "hey", "salam", "aoa", "kya haal", "kaise ho", "kese ho", "who are you", "koun ho", "kya karti ho", "intro", "namaste", "good morning", "good evening", "sab theek"]):
+        return (
+            "👋 **Hello! Main hoon Aura**, Hadi Seelro ka 24/7 Autonomous AI Concierge.\n\n"
+            "Main Hadi ke projects, skills, pricing, aur multi-agent architectures se fully updated hoon. "
+            "Aap mujhse koi bhi sawal pooch sakte hain, for example:\n"
+            "- 💼 *'Hadi kya services offer karte hain?'*\n"
+            "- 💰 *'Custom AI bot ya website banwane ka kitna kharcha aayega?'*\n"
+            "- 🤖 *'Agentic AI aur LangGraph kya hota hai?'*\n"
+            "- 🚀 *'Hadi se kaise contact ya hire karein?'*\n\n"
+            "Bataiye, aaj main aapki kya madad kar sakti hoon?"
+        )
+
+    # 3. Who is Hadi? / Experience / Background
+    if any(k in q for k in ["who is hadi", "hadi kaun", "hadi kon", "about hadi", "experience", "background", "education", "qualification", "kahan se", "based", "location", "senior architect", "bio"]):
+        return (
+            "### 👨‍💻 About Hadi Seelro\n\n"
+            "**Hadi Seelro** ek **Senior Agentic AI Systems Architect & Generative AI Engineer** hain. "
+            "Woh scalable multi-agent systems, self-correcting AI workflows, aur enterprise RAG pipelines design aur deploy karte hain.\n\n"
+            "**Key Highlights:**\n"
+            "- 🛠️ **Specialization:** LangGraph, CrewAI, Google Gemini 2.5, OpenAI GPT-4o, ChromaDB, FastAPI, Streamlit.\n"
+            "- 🚀 **Track Record:** 15+ production AI agents, 99.4% precision RAG systems, aur 80% token cost optimization.\n"
+            "- 🌍 **Availability:** Open for enterprise consulting, freelance contracts, aur full-time remote roles globally."
+        )
+
+    # 4. What is Agentic AI? / Concepts / RAG / LangGraph Explanations
+    if any(k in q for k in ["what is agentic ai", "agentic ai kya", "what is rag", "rag kya", "what is langgraph", "crewai", "multi-agent", "mcp", "model context protocol", "vector database", "difference between chatbot", "kya farq"]):
+        return (
+            "### 💡 Agentic AI vs Traditional Chatbots\n\n"
+            "Traditional chatbots sirf single prompt-and-response par kaam karte hain. "
+            "Lekin **Agentic AI systems autonomous** hote hain:\n\n"
+            "1. 🧠 **Reasoning & Planning:** Task ko multiple steps mein break karte hain.\n"
+            "2. 🛠️ **Tool Calling:** Databases, APIs, search engines, aur webhooks ko automatically call karte hain.\n"
+            "3. 🤝 **Multi-Agent Collaboration:** Multiple specialized agents (Researcher $\to$ Analyst $\to$ Reviewer) mil kar kaam karte hain.\n"
+            "4. 🔍 **Self-Correction & RAG:** Apni ghalatiyan khud detect karte hain aur zero-hallucination ensure karte hain.\n\n"
+            "Hadi inhi systems ko **LangGraph** aur **CrewAI** ke zariye enterprise businesses ke liye build karte hain!"
+        )
+
+    # 5. Services & Can You Build? (Chatbot, Website, Automation, App)
+    if any(k in q for k in ["service", "services", "kya bana sakte", "can you build", "can you make", "website", "bot", "chatbot", "rag", "system", "automation", "e-commerce", "lead", "scrape", "scraping", "integration", "crm"]):
         services_text = "### 🛠️ Production Agentic AI Services by Hadi Seelro:\n\n"
         for idx, s in enumerate(KNOWLEDGE_BASE["services"], 1):
             services_text += f"**{idx}. {s['title']}**\n"
             services_text += f"- *Overview*: {s['desc']}\n"
-            services_text += f"- *Estimated Delivery*: `{s['timeline']}` | *Pricing Tier*: `{s['tier']}`\n\n"
-        services_text += "💡 *Would you like an exact estimate for a custom project you have in mind? Let me know your requirements!*"
+            services_text += f"- *Delivery*: `{s['timeline']}` | *Pricing Tier*: `{s['tier']}`\n\n"
+        services_text += "💬 *Aapko kis tarah ka project ya bot banwana hai? Apni requirement bataiye, main exact roadmap suggest karungi!*"
         return services_text
 
-    # 3. Pricing, Costs & Estimates
-    elif any(k in query for k in ["cost", "price", "pricing", "budget", "rate", "quote", "kitna kharcha"]):
+    # 6. Pricing, Cost, Rates & Timeline
+    if any(k in q for k in ["cost", "price", "pricing", "budget", "rate", "kitna kharcha", "charges", "fees", "kitne paise", "expensive", "quote", "discount", "hourly", "timeline", "time kitna", "kab tak"]):
         return (
             "### 💰 Project Investment & Estimation Guide\n\n"
-            "Hadi offers transparent, milestone-driven pricing based on architecture complexity:\n\n"
+            "Hadi Seelro transparent aur milestone-based rates par kaam karte hain:\n\n"
             "- ⚡ **Proof-of-Concept / MVP AI Agent:** `$1,500 - $3,000` (1-2 weeks delivery)\n"
-            "- 🏢 **Enterprise Multi-Agent Swarm (LangGraph/CrewAI):** `$3,500 - $8,000` (Production deployment, tool integration, custom DB)\n"
-            "- 🔍 **Enterprise RAG System (Zero Hallucination):** `$2,000 - $5,000` (Vector DB setup, semantic re-ranking, document parsing)\n"
+            "- 🏢 **Enterprise Multi-Agent Swarm (LangGraph/CrewAI):** `$3,500 - $8,000` (Production deployment, DB & Tool integration)\n"
+            "- 🔍 **Enterprise RAG System (Zero Hallucination):** `$2,000 - $5,000` (Vector DB setup, semantic re-ranking)\n"
             "- 👨‍💻 **Hourly Technical Consulting:** `$150 / hour`\n\n"
-            "📩 *Tell me about your use case, or leave your email below, and Hadi will provide a formal Statement of Work (SOW) within 24 hours!*"
+            "📩 *Apna use case ya email drop karein taake Hadi aapke liye 24 hours ke andar custom Statement of Work (SOW) tayyar karein!*"
         )
 
-    # 4. Tech Stack & Skills
-    elif any(k in query for k in ["skill", "skills", "tech stack", "technologies", "langgraph", "crewai", "python"]):
+    # 7. Tech Stack, Python, Tools
+    if any(k in q for k in ["skill", "skills", "tech stack", "technologies", "langgraph", "crewai", "python", "gemini", "gpt", "tools"]):
         skills_list = "\n".join([f"- ✅ **{s}**" for s in KNOWLEDGE_BASE["skills"]])
         return (
-            f"### 🧠 Technical Stack & Core Competencies\n\n"
-            f"Hadi Seelro specializes in building **autonomous, self-correcting agent systems**:\n\n"
+            f"### 🧠 Hadi Seelro's Core Tech Stack\n\n"
             f"{skills_list}\n\n"
-            f"He focuses on building real-world business automation that reduces operating expenses and delivers measurable ROI."
+            f"Har system ko high speed, zero-downtime, aur low-token cost ke liye optimize kiya jata hai."
         )
 
-    # 5. Projects & Case Studies
-    elif any(k in query for k in ["project", "projects", "portfolio", "work", "kaam", "case study"]):
-        p_text = "### 🚀 Featured Agentic AI Deployments by Hadi:\n\n"
+    # 8. Projects & Case Studies
+    if any(k in q for k in ["project", "projects", "portfolio", "work", "kaam", "case study", "benchmark", "nexus", "omnidoc", "sentinel"]):
+        p_text = "### 🚀 Featured Deployments by Hadi:\n\n"
         for p in KNOWLEDGE_BASE["projects"]:
             p_text += f"#### 🔹 {p['name']}\n"
             p_text += f"- **Stack:** {', '.join(p['tags'])}\n"
-            p_text += f"- **Details:** {p['desc']}\n"
-            p_text += f"- **Performance Metric:** `{p['metrics']}`\n\n"
-        p_text += "👉 *Head over to the **'🛠️ Projects'** tab in the sidebar to explore full interactive architectural diagrams!*"
+            p_text += f"- **Overview:** {p['desc']}\n"
+            p_text += f"- **Metrics:** `{p['metrics']}`\n\n"
+        p_text += "👉 *Sidebar mein **'🛠️ Project Showcase'** tab par click karke full architecture explore karein!*"
         return p_text
 
-    # 6. Hiring, Contact & Booking
-    elif any(k in query for k in ["hire", "contact", "email", "meeting", "call", "book", "rabta"]):
+    # 9. Hire, Contact & Meeting
+    if any(k in q for k in ["hire", "contact", "email", "meeting", "call", "book", "rabta", "interview", "schedule", "talk to hadi"]):
         return (
             "### 📬 Hire Hadi Seelro or Schedule a Call\n\n"
-            "Hadi is actively collaborating with founders, enterprise teams, and tech startups:\n\n"
+            "Hadi globally founders aur engineering teams ke saath collaborate karte hain:\n\n"
             f"- 📧 **Direct Email:** `{KNOWLEDGE_BASE['contact']['email']}`\n"
             f"- 💼 **LinkedIn Profile:** [{KNOWLEDGE_BASE['contact']['linkedin']}]({KNOWLEDGE_BASE['contact']['linkedin']})\n"
             f"- 🐙 **GitHub Repositories:** [{KNOWLEDGE_BASE['contact']['github']}]({KNOWLEDGE_BASE['contact']['github']})\n"
             f"- 🟢 **Status:** `{KNOWLEDGE_BASE['contact']['availability']}`\n\n"
-            "💬 *You can also navigate to the **'📬 Contact & Hire'** section in the navigation menu to submit your project requirements directly!*"
+            "💬 *Aap apna email ya project brief yahan chat mein bhi likh sakte hain, main Hadi tak foran deliver kar doongi!*"
         )
 
-    # 7. General Contextual Fallback with Agentic Guidance
-    else:
+    # 10. Gratitude, Compliments & Farewell
+    if any(k in q for k in ["thank", "thanks", "shukriya", "great", "good", "nice", "awesome", "zabardast", "bohat acha", "cool", "perfect", "bye", "allah hafiz", "khuda hafiz"]):
         return (
-            f"🤖 **Aura Agent Intelligence Insight:**\n\n"
-            f"Thank you for your question: *'{user_input}'*.\n\n"
-            f"Hadi Seelro designs end-to-end **Agentic AI Systems**, ranging from autonomous lead-handling bots "
-            f"to multi-agent workflow engines (LangGraph & CrewAI) and custom RAG knowledge bases.\n\n"
-            f"**Recommended next steps:**\n"
-            f"1. Ask me: *'What are Hadi's services and pricing?'*\n"
-            f"2. Ask me: *'Show me recent projects and benchmarks'*\n"
-            f"3. Type your contact info or project idea, and I will capture it for Hadi!"
+            "😊 **Shukriya!** Mujhe aapki madad karke bohat khushi hui.\n\n"
+            "Agar aapka koi aur sawal ho, ya aap Hadi ke saath kisi AI project par collaborate karna chahein, "
+            "to main hamesha 24/7 yahan available hoon. Have a wonderful day ahead! 🚀"
         )
+
+    # 11. Contextual Dynamic Intelligent Fallback
+    return (
+        f"🤖 **Aura AI Consultation Note:**\n\n"
+        f"Aapne poocha: *'{user_input}'*.\n\n"
+        f"Hadi Seelro custom AI engineering mein specialized hain aur is tarah ke use cases ke liye "
+        f"autonomous agent workflows, custom RAG pipelines, ya LLM API integrations design karte hain.\n\n"
+        f"**Next steps:**\n"
+        f"1. 💰 Ask: *'Is project ka ballpark cost aur timeline kya hoga?'*\n"
+        f"2. 🛠️ Ask: *'Hadi isme kaun se tools aur tech stack use karenge?'*\n"
+        f"3. 📩 Apna **Email Address** yahan type karein taake Hadi aapse direct contact kar sakein!"
+    )
+
+
+def generate_agent_response(user_input: str, history: list = None) -> str:
+    """
+    Main response generator:
+    Tries Live Gemini API first (if key configured), else uses rich local NLP engine.
+    """
+    api_key = get_gemini_api_key()
+    if api_key:
+        try:
+            return query_gemini_api(user_input, history or [], api_key)
+        except Exception:
+            # Fall back gracefully to local engine if API fails
+            pass
+            
+    return generate_local_nlp_response(user_input)
 
 # ==========================================
 # 🗄️ SESSION STATE INITIALIZATION
@@ -533,11 +660,19 @@ if "lead_count" not in st.session_state:
 @st.dialog("🤖 Aura AI • 24/7 Client Concierge", width="small")
 def open_aura_chat_dialog():
     st.markdown(
-        "<p style='color: #cbd5e1; font-size: 0.88rem; margin-top: -10px; margin-bottom: 10px;'>"
+        "<p style='color: #cbd5e1; font-size: 0.88rem; margin-top: -10px; margin-bottom: 8px;'>"
         "Hadi's 24/7 autonomous client concierge. Ask questions or tap an inquiry below."
         "</p>",
         unsafe_allow_html=True
     )
+    
+    # Optional Live Gemini Key expander
+    with st.expander("🔑 AI Mode: Live Gemini / Knowledge Base", expanded=False):
+        st.caption("Aura operates 24/7. Add a free Gemini API key (or set `GEMINI_API_KEY` in Streamlit Secrets) to chat live with LLM:")
+        user_key = st.text_input("Gemini API Key:", value=st.session_state.get("user_gemini_key", ""), type="password", placeholder="AIzaSy...", key="inp_gemini_key")
+        if user_key != st.session_state.get("user_gemini_key", ""):
+            st.session_state.user_gemini_key = user_key
+            st.rerun()
     
     # Message History Container (Compact & Scrollable)
     msg_box = st.container(height=260)
@@ -577,7 +712,7 @@ def open_aura_chat_dialog():
             "time": current_time
         })
         # 2. Generate Response
-        reply = generate_agent_response(prompt)
+        reply = generate_agent_response(prompt, st.session_state.messages)
         st.session_state.messages.append({
             "role": "assistant",
             "content": reply,
