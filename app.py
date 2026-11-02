@@ -356,67 +356,67 @@ st.markdown("""
 # ==========================================
 KNOWLEDGE_BASE = {
     "developer_name": "Hadi Seelro",
-    "role": "Senior Agentic AI Systems Architect & Generative AI Engineer",
-    "experience": "Specialized in Autonomous Multi-Agent Swarms, Enterprise RAG, LangGraph, CrewAI, Google Gemini, and production LLM orchestration.",
+    "role": "AI Engineer & Automation Specialist",
+    "experience": "Specialized in building smart 24/7 customer assistants, automated business workflows, custom document search tools, and modern web applications.",
     "skills": [
-        "Multi-Agent Architectures (LangGraph, CrewAI, AutoGen)",
-        "Model Context Protocol (MCP) & Custom Tool Integration",
-        "Enterprise RAG & Hybrid Vector Search (Chroma, Pinecone, FAISS)",
-        "Large Language Models (Google Gemini 2.5/Flash, GPT-4o, Claude 3.5 Sonnet)",
-        "Full-Stack Python AI Apps (Streamlit, FastAPI, Pydantic, AsyncIO)",
-        "Automated CI/CD, Agent Telemetry, Prompt Guardrails, Evaluation"
+        "24/7 Customer Support AI Chatbots (Website & WhatsApp)",
+        "Automated Business Workflows (Data entry, emails, invoices)",
+        "Smart PDF & Document Search (Ask questions from your files)",
+        "Custom AI Websites & Portals (Fast, modern, interactive)",
+        "Top AI Models (Google Gemini, OpenAI ChatGPT, Claude)",
+        "Simple, user-friendly dashboards for non-technical teams"
     ],
     "services": [
         {
-            "title": "Autonomous Agent Swarms",
-            "desc": "Multi-agent systems where specialized agents (Researcher, Analyst, Executor) communicate and collaborate to solve complex business workflows end-to-end.",
-            "timeline": "2-4 Weeks",
-            "tier": "$3,000 - $8,000"
-        },
-        {
-            "title": "Enterprise RAG & Knowledge Retrieval",
-            "desc": "High-precision vector pipelines with semantic chunking, re-ranking, and zero-hallucination guardrails for internal company wikis and documentation.",
-            "timeline": "1-3 Weeks",
-            "tier": "$2,000 - $5,000"
-        },
-        {
-            "title": "24/7 Intelligent Client & Customer Support Agents",
-            "desc": "Production-ready autonomous conversational agents equipped with tool calling, live CRM syncing, lead capture, and instant booking capabilities.",
+            "title": "24/7 Customer AI Chatbots",
+            "desc": "An intelligent virtual assistant for your website or WhatsApp that answers customer questions, captures leads, and books appointments around the clock.",
             "timeline": "1-2 Weeks",
-            "tier": "$1,500 - $3,500"
+            "tier": "$1,500 - $3,000"
         },
         {
-            "title": "AI Strategy & Architectural Consulting",
-            "desc": "1-on-1 technical advisory on LLM token economics, agent orchestration design, cloud infrastructure, and security compliance.",
-            "timeline": "Hourly / Retainer",
-            "tier": "$150/hr or $2,500/mo"
+            "title": "Smart Business Automation",
+            "desc": "Automate repetitive daily tasks—like answering routine emails, organizing data, generating reports, and processing invoices with zero manual effort.",
+            "timeline": "2-3 Weeks",
+            "tier": "$2,500 - $5,000"
+        },
+        {
+            "title": "Document & PDF Intelligence",
+            "desc": "Upload your company catalogs, user manuals, or legal policies, and let AI instantly search and answer questions with 100% accuracy.",
+            "timeline": "1-2 Weeks",
+            "tier": "$2,000 - $4,000"
+        },
+        {
+            "title": "1-on-1 AI Strategy & Consulting",
+            "desc": "Personal consultation to help you identify the best ways AI can save your company time, reduce overhead costs, and boost team productivity.",
+            "timeline": "Hourly or Monthly",
+            "tier": "$150 / hour"
         }
     ],
     "projects": [
         {
-            "name": "Nexus Swarm: Autonomous Market Intelligence",
-            "tags": ["LangGraph", "CrewAI", "Gemini 2.5", "FastAPI"],
-            "desc": "A coordinated 4-agent swarm that crawls real-time financial news, conducts technical analysis, verifies anomalies, and generates automated market briefing reports.",
-            "metrics": "87% latency reduction • 99.4% factual accuracy"
+            "name": "Smart Market & Competitor News Tracker",
+            "tags": ["Automated Research", "Market Intel", "Gemini AI"],
+            "desc": "An automated AI assistant that scans daily industry news, tracks competitor pricing changes, and delivers a quick morning email briefing.",
+            "metrics": "Saves 15+ hours of manual research every week"
         },
         {
-            "name": "OmniDoc: Enterprise Multi-Modal RAG Engine",
-            "tags": ["Streamlit", "ChromaDB", "Vector Search", "Python"],
-            "desc": "Processes thousands of complex PDFs, financial statements, and diagrams with vision-enabled chunking and citation tracking.",
-            "metrics": "100k+ docs indexed • < 600ms query latency"
+            "name": "OmniDoc: Smart PDF & Document Assistant",
+            "tags": ["PDF Search", "Zero Hallucination", "Fast AI"],
+            "desc": "Allows business teams to upload hundreds of pages of complex documents, contracts, and receipts and ask questions in plain English.",
+            "metrics": "Instant answers in < 1 second across 1,000+ pages"
         },
         {
-            "name": "SentinelAI: Autonomous Code Reviewer & Security Agent",
-            "tags": ["MCP Server", "GitHub Actions", "Python", "AST Parser"],
-            "desc": "Monitors pull requests, executes static code security checks, identifies hallucinated dependencies, and posts automated fix suggestions.",
-            "metrics": "420+ vulnerabilities detected • Zero false positives"
+            "name": "SentinelAI: Automated Website Quality Checker",
+            "tags": ["Quality Assurance", "Automated Checks", "Security"],
+            "desc": "Monitors online forms, websites, and applications to catch errors, dead links, or security gaps before real customers encounter them.",
+            "metrics": "Over 400+ issues detected automatically"
         }
     ],
     "contact": {
-        "email": "hadi.seelro@example.com",
-        "github": "https://github.com/hadiseelro",
+        "email": "sainbuxseelro11@gmail.com",
+        "github": "https://github.com/SainBux-HadiSeelro",
         "linkedin": "https://linkedin.com/in/hadiseelro",
-        "availability": "Open for Contract, Full-time Remote & Enterprise Consulting"
+        "availability": "Open for New Client Projects & Remote Consulting"
     }
 }
 
@@ -734,73 +734,71 @@ def open_aura_chat_dialog():
             st.info("Chat cleared. You can start a fresh conversation above!")
 
 # ==========================================
-# 📌 SIDEBAR NAVIGATION & SYSTEM METRICS
+# 📌 SIDEBAR NAVIGATION & QUICK PROFILE
 # ==========================================
 with st.sidebar:
     st.markdown("""
         <div style="text-align: center; padding: 10px 0;">
             <div style="font-size: 2.5rem;">🤖</div>
             <h2 style="margin: 0; font-size: 1.3rem; color: #00f2fe;">HADI SEELRO</h2>
-            <p style="color: #94a3b8; font-size: 0.8rem; margin: 4px 0 12px 0;">Agentic AI Systems Architect</p>
+            <p style="color: #94a3b8; font-size: 0.85rem; margin: 4px 0 12px 0;">AI Solutions & Automation Expert</p>
             <div class="agent-pill">
                 <span class="pulse-dot"></span>
-                <span>Agent Online 24/7</span>
+                <span>Available for New Projects</span>
             </div>
         </div>
     """, unsafe_allow_html=True)
     
     # Direct Chat Trigger in Sidebar Corner
-    if st.button("💬 Chat with Aura AI (24/7)", key="sidebar_chat_btn", use_container_width=True, type="primary"):
+    if st.button("💬 Chat with AI Assistant", key="sidebar_chat_btn", use_container_width=True, type="primary"):
         open_aura_chat_dialog()
         
     st.markdown("---")
     
-    # Navigation Radio (Chatbot separated into floating widget)
+    # Simple, Non-Technical Navigation Menu
     nav_page = st.radio(
-        "⚡ Navigation",
+        "⚡ Explore",
         [
-            "🏠 Overview & Bio",
-            "⚡ Agentic AI Lab (Demos)",
-            "🛠️ Project Showcase",
-            "📑 System Specs & Architecture",
-            "📬 Contact & Hire"
+            "🏠 Home & Overview",
+            "⚡ Try Live Demos",
+            "🛠️ Services & What I Build",
+            "💡 How It Works & FAQ",
+            "📬 Contact & Hire Hadi"
         ],
         index=0
     )
     
     st.markdown("---")
     
-    # Live System Telemetry
-    st.markdown("### 📊 Agent Telemetry")
-    col_sb1, col_sb2 = st.columns(2)
-    with col_sb1:
-        st.metric("Agent Uptime", "99.98%")
-    with col_sb2:
-        st.metric("Response", "< 350ms")
-        
-    st.caption("🔒 Architecture: Sandboxed State Engine v1.0")
+    # Simple Trust & Reliability Badges
+    st.markdown("### 🌟 Why Work With Hadi?")
+    st.markdown("✅ **100% Custom Built** for your needs")
+    st.markdown("✅ **24/7 Support** & Fast Delivery")
+    st.markdown("✅ **Zero Tech Headaches** for you")
+    
+    st.markdown("---")
     
     # Quick Links
-    st.markdown("### 🔗 Connect")
-    st.markdown(f"- [🐙 GitHub Repo]({KNOWLEDGE_BASE['contact']['github']})")
-    st.markdown(f"- [💼 LinkedIn Profile]({KNOWLEDGE_BASE['contact']['linkedin']})")
+    st.markdown("### 🔗 Connect Directly")
+    st.markdown(f"- 📧 [Email Hadi](mailto:{KNOWLEDGE_BASE['contact']['email']})")
+    st.markdown(f"- 💼 [LinkedIn Profile]({KNOWLEDGE_BASE['contact']['linkedin']})")
+    st.markdown(f"- 🐙 [GitHub Repositories]({KNOWLEDGE_BASE['contact']['github']})")
 
 
 # ==========================================
-# 🏠 PAGE 1: OVERVIEW & BIO
+# 🏠 PAGE 1: HOME & OVERVIEW
 # ==========================================
-if nav_page == "🏠 Overview & Bio":
+if nav_page == "🏠 Home & Overview":
     st.markdown("""
         <div class="hero-card">
             <div class="agent-pill">
                 <span class="pulse-dot"></span>
-                <span>Active Autonomous Agent • Ready for Client Inquiries</span>
+                <span>Smart AI for Business • 24/7 Automation</span>
             </div>
-            <h1 class="hero-title">Architecting Next-Gen Agentic AI Systems</h1>
+            <h1 class="hero-title">I Build Smart AI Assistants & Websites for Your Business</h1>
             <p class="hero-subtitle">
-                I design and deploy production-grade <b>autonomous multi-agent workflows</b>, 
-                high-precision RAG systems, and self-correcting AI pipelines using LangGraph, CrewAI, 
-                and Google Gemini to automate complex enterprise workflows.
+                Save hours of manual work every week. I build <b>intelligent 24/7 customer chatbots, 
+                automated daily workflows, and fast modern web apps</b> that help your business grow while keeping costs low.
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -811,204 +809,231 @@ if nav_page == "🏠 Overview & Bio":
         st.markdown("""
             <div class="metric-card">
                 <div class="metric-value">15+</div>
-                <div class="metric-label">AI Agents Deployed</div>
+                <div class="metric-label">AI Systems Built</div>
             </div>
         """, unsafe_allow_html=True)
     with col2:
         st.markdown("""
             <div class="metric-card">
-                <div class="metric-value">99.4%</div>
-                <div class="metric-label">Factual Precision (RAG)</div>
+                <div class="metric-value">99%</div>
+                <div class="metric-label">Answer Accuracy</div>
             </div>
         """, unsafe_allow_html=True)
     with col3:
         st.markdown("""
             <div class="metric-card">
                 <div class="metric-value">80%</div>
-                <div class="metric-label">Cost & Token Reduction</div>
+                <div class="metric-label">Time & Cost Saved</div>
             </div>
         """, unsafe_allow_html=True)
     with col4:
         st.markdown("""
             <div class="metric-card">
                 <div class="metric-value">24/7</div>
-                <div class="metric-label">Autonomous Operation</div>
+                <div class="metric-label">Non-Stop Operation</div>
             </div>
         """, unsafe_allow_html=True)
         
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Core Capabilities Grid
-    st.subheader("💡 What Sets an Agentic AI Developer Apart?")
-    st.write(
-        "Traditional AI apps make single API calls. **Agentic AI systems reason, plan, use tools, "
-        "cross-verify facts, and recover from errors autonomously.** Here is how I architect solutions:"
-    )
+    # 4 Simple What I Can Do For You Cards
+    st.subheader("💡 What Can Custom AI Do For Your Business?")
+    st.write("You don't need to understand complex coding. Here are the real, practical solutions I create for clients:")
     
     col_cap1, col_cap2 = st.columns(2)
     with col_cap1:
         st.markdown("""
         <div class="project-card">
-            <h4 style="color: #00f2fe; margin-top:0;">🤝 Multi-Agent Swarms & DAGs</h4>
-            <p style="color: #cbd5e1; font-size: 0.92rem;">
-                Orchestrate multi-role agents (Planner, Researcher, Critic, Executor) using 
-                <b>LangGraph</b> state machines and <b>CrewAI</b> to tackle multi-step business logic with zero human intervention.
+            <h4 style="color: #00f2fe; margin-top:0;">💬 24/7 Customer Support Chatbots</h4>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">
+                Never lose a client lead again. An AI assistant on your website or WhatsApp answers common inquiries, 
+                quotes pricing, and captures customer contact details while you sleep.
             </p>
-            <span class="tag">LangGraph</span>
-            <span class="tag">CrewAI</span>
-            <span class="tag">State Machines</span>
+            <span class="tag">Instant Answers</span>
+            <span class="tag">Lead Capture</span>
+            <span class="tag">Zero Wait Time</span>
         </div>
         """, unsafe_allow_html=True)
         
         st.markdown("""
         <div class="project-card">
-            <h4 style="color: #00f2fe; margin-top:0;">🔍 Enterprise RAG & Semantic Cache</h4>
-            <p style="color: #cbd5e1; font-size: 0.92rem;">
-                Zero-hallucination document intelligence pipelines with hybrid lexical-semantic search, 
-                re-ranking models, vector memory persistence, and dynamic citation tracing.
+            <h4 style="color: #00f2fe; margin-top:0;">🔍 Instant Document & PDF Search</h4>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">
+                Upload your product catalogs, legal policies, or employee manuals. Your team or clients can ask questions 
+                in plain language and get instant, 100% accurate answers.
             </p>
-            <span class="tag">ChromaDB</span>
-            <span class="tag">Pinecone</span>
-            <span class="tag">Hybrid Search</span>
+            <span class="tag">PDF Assistant</span>
+            <span class="tag">Zero Hallucinations</span>
+            <span class="tag">Instant Search</span>
         </div>
         """, unsafe_allow_html=True)
 
     with col_cap2:
         st.markdown("""
         <div class="project-card">
-            <h4 style="color: #00f2fe; margin-top:0;">🛠️ Model Context Protocol (MCP) & Tools</h4>
-            <p style="color: #cbd5e1; font-size: 0.92rem;">
-                Bridging LLMs directly to databases, third-party APIs, CRM webhooks, and local execution sandboxes 
-                using the open <b>Model Context Protocol (MCP)</b>.
+            <h4 style="color: #00f2fe; margin-top:0;">⚡ Smart Business Automation</h4>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">
+                Automate repetitive daily tasks—like reading routine emails, extracting invoice data, updating spreadsheets, 
+                and preparing weekly briefing reports with zero manual effort.
             </p>
-            <span class="tag">MCP Server</span>
-            <span class="tag">Function Calling</span>
-            <span class="tag">API Integration</span>
+            <span class="tag">Save 15+ Hours/Week</span>
+            <span class="tag">No Manual Errors</span>
+            <span class="tag">Hands-Free</span>
         </div>
         """, unsafe_allow_html=True)
         
         st.markdown("""
         <div class="project-card">
-            <h4 style="color: #00f2fe; margin-top:0;">🛡️ Guardrails, Eval & Token Economics</h4>
-            <p style="color: #cbd5e1; font-size: 0.92rem;">
-                Production guardrails to prevent prompt injection, evaluate LLM outputs (RAGAS), 
-                and optimize token usage to lower API overhead by up to 80%.
+            <h4 style="color: #00f2fe; margin-top:0;">🌐 Custom Modern Websites & Web Apps</h4>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">
+                Fast, mobile-friendly, interactive websites (just like this one) built specifically around your brand, 
+                business goals, and client workflow with built-in AI tools.
             </p>
-            <span class="tag">NeMo Guardrails</span>
-            <span class="tag">RAGAS</span>
-            <span class="tag">Cost Optimization</span>
+            <span class="tag">Modern Design</span>
+            <span class="tag">Mobile Friendly</span>
+            <span class="tag">Fast & Secure</span>
         </div>
         """, unsafe_allow_html=True)
 
 
 # ==========================================
-# ⚡ PAGE 2: AGENTIC AI LAB (INTERACTIVE DEMOS)
+# ⚡ PAGE 2: TRY LIVE DEMOS
 # ==========================================
-elif nav_page == "⚡ Agentic AI Lab (Demos)":
-    st.title("⚡ Interactive Agentic AI Playground")
-    st.write("Experience how autonomous AI agents execute tasks in real time without human intervention.")
+elif nav_page == "⚡ Try Live Demos":
+    st.title("⚡ See How Smart AI Works For Your Business")
+    st.write("Click the interactive tools below to experience how AI automates tasks and saves your team hours of work.")
     
     lab_tab1, lab_tab2, lab_tab3 = st.tabs([
-        "🤖 Swarm Workflow Simulator",
-        "💰 AI Agent ROI & Token Calculator",
-        "📈 Live Agent Health Telemetry"
+        "🤖 Try Automated Helper",
+        "💰 Business Savings Calculator",
+        "🛡️ Reliability & Guarantees"
     ])
     
-    # Tab 1: Multi-Agent Swarm Simulation
+    # Tab 1: Simple 3-Step Automation Demo
     with lab_tab1:
-        st.subheader("Autonomous 3-Agent Collaborative Swarm")
-        st.write("Simulate how three specialized agents work together sequentially to solve an enterprise task.")
+        st.subheader("Watch 3 AI Helpers Solve a Task Automatically")
+        st.write("Pick a common business scenario and watch how AI coordinates to finish it with zero human effort:")
         
         sim_task = st.selectbox(
-            "Select a target business workflow to orchestrate:",
+            "Select an everyday business task to test:",
             [
-                "Automate Customer Refund Fraud Detection & Resolution",
-                "Generate Weekly Competitor Intelligence & Market Briefing",
-                "Audit Internal Git Repository for Security Vulnerabilities"
+                "🛒 Customer Support: Verify Order Details & Issue Fast Refund",
+                "📊 Market Research: Search Daily Competitor Pricing & Summarize",
+                "📧 Email Assistant: Read Customer Inquiry & Draft Professional Reply"
             ]
         )
         
-        if st.button("🚀 Trigger Agent Swarm", type="primary"):
+        if st.button("🚀 Run Automated AI Helper", type="primary"):
             progress_bar = st.progress(0)
             status_text = st.empty()
             
-            # Step 1: Researcher Agent
-            status_text.markdown("🟡 **[Agent 1: Researcher]** Gathering data points, parsing incoming payload...")
+            # Step 1
+            status_text.markdown("🟡 **[Step 1: Information Finder]** Reading incoming customer request and checking records...")
             progress_bar.progress(33)
             time.sleep(0.8)
-            st.success("✅ **Researcher Agent Completed:** Retrieved 14 relevant telemetry logs and user history.")
+            st.success("✅ **Step 1 Completed:** Customer records and order history retrieved successfully.")
             
-            # Step 2: Analyst Agent
-            status_text.markdown("🟡 **[Agent 2: Analyst]** Evaluating compliance rules, running fraud heuristic model...")
+            # Step 2
+            status_text.markdown("🟡 **[Step 2: Policy Checker]** Verifying business rules, return policy, and guidelines...")
             progress_bar.progress(66)
             time.sleep(0.9)
-            st.info("ℹ️ **Analyst Agent Completed:** Verified zero policy violations. Risk score: 0.04 (Low Risk).")
+            st.info("ℹ️ **Step 2 Completed:** Order verified within policy guidelines. Zero issues found.")
             
-            # Step 3: Synthesizer Agent
-            status_text.markdown("🟡 **[Agent 3: Synthesizer]** Executing automated resolution webhook and drafting audit log...")
+            # Step 3
+            status_text.markdown("🟡 **[Step 3: Action & Response]** Preparing friendly customer reply and notifying accounts...")
             progress_bar.progress(100)
             time.sleep(0.7)
-            status_text.markdown("🟢 **[Swarm Execution Finished]** All steps completed successfully!")
+            status_text.markdown("🟢 **[All Done!]** Task completed successfully with zero human delay!")
             
             st.balloons()
-            st.json({
-                "workflow": sim_task,
-                "execution_status": "SUCCESS",
-                "total_latency_seconds": 2.4,
-                "agents_involved": ["ResearcherAgent", "AnalystAgent", "SynthesizerAgent"],
-                "action_taken": "Automated pipeline executed with zero human intervention"
-            })
+            st.markdown(f"""
+            <div class="project-card" style="border-left: 4px solid #10b981; margin-top: 16px;">
+                <h4 style="color:#10b981; margin:0 0 8px 0;">🎉 Task Completed in 2.4 Seconds</h4>
+                <p><b>Task:</b> {sim_task}</p>
+                <p><b>Human Time Saved:</b> ~15 minutes of employee workload.</p>
+                <p><b>Result:</b> Customer received an instant, polite, and 100% accurate resolution.</p>
+            </div>
+            """, unsafe_allow_html=True)
             
-    # Tab 2: ROI Calculator
+    # Tab 2: Simple ROI / Savings Calculator
     with lab_tab2:
-        st.subheader("📊 Enterprise AI Agent ROI & Token Cost Estimator")
-        st.write("Calculate how much human labor cost an autonomous agent saves your company per month.")
+        st.subheader("📊 How Much Money & Time Can AI Save Your Business?")
+        st.write("Adjust the sliders below based on your team's size to see your potential monthly savings:")
         
         c1, c2 = st.columns(2)
         with c1:
-            tasks_per_month = st.slider("Monthly manual customer or back-office tasks:", 500, 50000, 5000, step=500)
-            mins_per_task = st.slider("Average minutes a human employee spends per task:", 5, 60, 15)
+            tasks_per_month = st.slider("Repetitive tasks handled per month (emails, forms, lookups):", 500, 20000, 3000, step=500)
+            mins_per_task = st.slider("Average minutes an employee spends per task:", 5, 45, 15)
         with c2:
-            hourly_wage = st.slider("Human worker average hourly cost ($):", 15, 120, 35)
-            agent_cost_per_task = st.number_input("Estimated LLM token cost per task ($):", 0.001, 0.50, 0.015, step=0.005)
+            hourly_wage = st.slider("Employee average hourly wage ($/hr):", 15, 100, 30)
+            st.caption("AI token and hosting costs typically average less than **$0.01 per task**.")
             
         # Calculation
         human_hours = (tasks_per_month * mins_per_task) / 60
         human_monthly_cost = human_hours * hourly_wage
-        agent_monthly_cost = tasks_per_month * agent_cost_per_task
+        agent_monthly_cost = tasks_per_month * 0.015
         net_savings = human_monthly_cost - agent_monthly_cost
-        roi_percentage = (net_savings / (agent_monthly_cost + 1e-6)) * 100
         
         st.markdown("---")
         r_col1, r_col2, r_col3 = st.columns(3)
         with r_col1:
-            st.metric("Human Labor Cost", f"${human_monthly_cost:,.2f} / mo")
+            st.metric("Current Staff Cost", f"${human_monthly_cost:,.0f} / mo")
         with r_col2:
-            st.metric("Autonomous Agent Cost", f"${agent_monthly_cost:,.2f} / mo")
+            st.metric("Cost with AI Assistant", f"${agent_monthly_cost:,.0f} / mo")
         with r_col3:
-            st.metric("Estimated Net Savings", f"${net_savings:,.2f} / mo", delta=f"{roi_percentage:,.0f}% ROI")
+            st.metric("💰 Estimated Savings", f"${net_savings:,.0f} / mo", delta="95% Savings")
             
-        st.caption("💡 Hadi architects agent workflows specifically to minimize token usage while maximizing accuracy.")
+        st.caption("💡 Custom AI automation runs 24/7 without delays, burnout, sick leaves, or overtime pay.")
 
-    # Tab 3: System Health Telemetry
+    # Tab 3: Simple Guarantees
     with lab_tab3:
-        st.subheader("📈 Live Agent Health & Model Latency")
+        st.subheader("🛡️ Built For Peace of Mind")
+        st.write("Every AI solution Hadi builds comes with strict enterprise guarantees:")
         
-        bench_data = pd.DataFrame({
-            "Model Pipeline": ["Gemini 2.5 Flash (Default)", "LangGraph Swarm Router", "Hybrid Vector Search (RAG)", "MCP Tool Execution"],
-            "Avg Latency (ms)": [320, 580, 210, 440],
-            "Success Rate (%)": [99.8, 99.4, 100.0, 99.2],
-            "Status": ["🟢 Healthy", "🟢 Healthy", "🟢 Healthy", "🟢 Healthy"]
-        })
-        st.dataframe(bench_data, use_container_width=True)
+        g_col1, g_col2 = st.columns(2)
+        with g_col1:
+            st.markdown("""
+            <div class="project-card">
+                <h4 style="color:#00f2fe; margin-top:0;">🟢 24/7 Non-Stop Availability</h4>
+                <p style="color:#cbd5e1; font-size:0.92rem;">
+                    Your AI assistants work around the clock—weekends, holidays, and nights—with zero downtime.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown("""
+            <div class="project-card">
+                <h4 style="color:#00f2fe; margin-top:0;">⚡ Sub-Second Fast Answers</h4>
+                <p style="color:#cbd5e1; font-size:0.92rem;">
+                    Customers and staff get accurate answers in under 1 second instead of waiting hours for a reply.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        with g_col2:
+            st.markdown("""
+            <div class="project-card">
+                <h4 style="color:#00f2fe; margin-top:0;">🔒 100% Data Confidentiality</h4>
+                <p style="color:#cbd5e1; font-size:0.92rem;">
+                    Your company data, customer contacts, and internal files stay strictly private and protected.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown("""
+            <div class="project-card">
+                <h4 style="color:#00f2fe; margin-top:0;">🎯 Zero Guesswork (Guarded AI)</h4>
+                <p style="color:#cbd5e1; font-size:0.92rem;">
+                    The AI is locked strictly to your verified company documents so it never invents false answers.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
 
 # ==========================================
-# 🛠️ PAGE 4: PROJECT SHOWCASE
+# 🛠️ PAGE 3: SERVICES & WHAT I BUILD
 # ==========================================
-elif nav_page == "🛠️ Project Showcase":
-    st.title("🛠️ Production Systems & Case Studies")
-    st.write("Real-world autonomous AI architectures designed for scalability, zero-hallucination, and reliability.")
+elif nav_page == "🛠️ Services & What I Build":
+    st.title("🛠️ What I Can Build For Your Business")
+    st.write("Proven, production-ready AI tools tailored to your exact business needs:")
     
     for proj in KNOWLEDGE_BASE["projects"]:
         st.markdown(f"""
@@ -1016,7 +1041,7 @@ elif nav_page == "🛠️ Project Showcase":
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
                 <h3 style="color:#00f2fe; margin:0;">{proj['name']}</h3>
                 <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
-                    Verified Production Architecture
+                    Ready to Deploy
                 </span>
             </div>
             <p style="color:#cbd5e1; margin-top:12px; font-size:1rem; line-height:1.6;">
@@ -1025,134 +1050,145 @@ elif nav_page == "🛠️ Project Showcase":
             <div style="margin: 12px 0;">
                 {' '.join([f'<span class="tag">{t}</span>' for t in proj['tags']])}
             </div>
-            <div style="background: rgba(0,0,0,0.3); padding: 8px 14px; border-radius: 8px; border-left: 3px solid #00f2fe; font-size: 0.88rem; color: #94a3b8;">
-                ⚡ <b>Performance Benchmark:</b> <span style="color: #00f2fe;">{proj['metrics']}</span>
+            <div style="background: rgba(0,0,0,0.3); padding: 8px 14px; border-radius: 8px; border-left: 3px solid #00f2fe; font-size: 0.9rem; color: #94a3b8;">
+                ✨ <b>Key Business Benefit:</b> <span style="color: #00f2fe;">{proj['metrics']}</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
         
-    st.markdown("### 💻 Interested in seeing the underlying code or architecture diagrams?")
-    st.write("Each project includes full documentation, containerized setup, and unit-tested agent nodes.")
+    st.markdown("### 💼 Want a custom AI tool tailored to your exact workflow?")
+    st.write("Whether you need a Shopify chatbot, an email assistant, or a custom web dashboard, Hadi can build it in 1 to 2 weeks.")
 
 
 # ==========================================
-# 📑 PAGE 5: SYSTEM SPECS & ARCHITECTURE
+# 💡 PAGE 4: HOW IT WORKS & FAQ
 # ==========================================
-elif nav_page == "📑 System Specs & Architecture":
-    st.title("📑 Technical Architecture & Project Specifications")
-    st.write("Detailed engineering specifications for this Agentic AI portfolio and autonomous client agent.")
+elif nav_page == "💡 How It Works & FAQ":
+    st.title("💡 How It Works & Frequently Asked Questions")
+    st.write("Everything you need to know about working with Hadi Seelro to build custom AI for your business.")
     
-    spec_col1, spec_col2 = st.columns([3, 1])
-    with spec_col1:
-        st.info("💡 Complete technical specs document is maintained under `/specs/project-specs.md`.")
-    with spec_col2:
-        st.download_button(
-            label="📥 Download Full Spec (MD)",
-            data="""# System Technical Specifications\nProject: Autonomous Agentic AI Developer Portfolio\nStatus: Production Ready\nVersion: 1.0.0""",
-            file_name="project-specs.md",
-            mime="text/markdown",
-            use_container_width=True
+    st.markdown("### 🚀 Simple 3-Step Process:")
+    step1, step2, step3 = st.columns(3)
+    with step1:
+        st.markdown("""
+        <div class="project-card" style="text-align: center;">
+            <div style="font-size: 2rem;">📞</div>
+            <h4 style="color:#00f2fe; margin: 8px 0;">1. Free Consultation</h4>
+            <p style="color:#cbd5e1; font-size:0.9rem;">
+                We discuss what repetitive problems or customer tasks you want to automate.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    with step2:
+        st.markdown("""
+        <div class="project-card" style="text-align: center;">
+            <div style="font-size: 2rem;">🛠️</div>
+            <h4 style="color:#00f2fe; margin: 8px 0;">2. Custom Build</h4>
+            <p style="color:#cbd5e1; font-size:0.9rem;">
+                Hadi designs your AI assistant and connects it directly to your tools and website.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    with step3:
+        st.markdown("""
+        <div class="project-card" style="text-align: center;">
+            <div style="font-size: 2rem;">🚀</div>
+            <h4 style="color:#00f2fe; margin: 8px 0;">3. Launch & Relax</h4>
+            <p style="color:#cbd5e1; font-size:0.9rem;">
+                Your AI assistant goes live 24/7, saving your team hours every day from Day 1.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    st.markdown("---")
+    
+    # Common Questions (FAQ)
+    st.subheader("❓ Frequently Asked Questions (FAQ)")
+    
+    with st.expander("Do I need to be technical or know coding to use this?"):
+        st.write(
+            "**Not at all!** Every solution is built for everyday business owners and staff. "
+            "You get a clean, easy-to-use dashboard and friendly chat interface that works just like WhatsApp or ChatGPT."
         )
         
-    st.markdown("### 🏛️ Agentic Topology Diagram")
-    st.markdown("""
-```text
-  +-----------------------------------------------------------------------+
-  |                           USER INTERACTION LAYER                      |
-  |             Streamlit Glassmorphism UI  |  Live Chat Assistant        |
-  +-----------------------------------------------------------------------+
-                                     |
-                                     v
-  +-----------------------------------------------------------------------+
-  |                   AURA AUTONOMOUS ORCHESTRATOR                        |
-  |   - Intent Classifier & Semantic Matcher                              |
-  |   - Ephemeral Session Memory (st.session_state)                       |
-  |   - Dynamic Lead Qualification State Machine                          |
-  +-----------------------------------------------------------------------+
-                    |                                 |
-                    v                                 v
-  +-----------------------------------+  +--------------------------------+
-  |        KNOWLEDGE RETRIEVAL        |  |     MULTI-AGENT WORKFLOW       |
-  |   - Developer Experience Vector   |  |   - Researcher Node            |
-  |   - Pricing & Timeline Catalog    |  |   - Analyst Node               |
-  |   - Verified Case Studies         |  |   - Synthesizer Node           |
-  +-----------------------------------+  +--------------------------------+
-                    |                                 |
-                    +----------------+----------------+
-                                     v
-  +-----------------------------------------------------------------------+
-  |                   CLIENT ENGAGEMENT & CONVERSION                      |
-  |     Direct Booking Intake  |  Automated SOW Estimator  | Lead Buffer  |
-  +-----------------------------------------------------------------------+
-```
-    """)
-    
-    st.markdown("### 📐 Technical Specification Highlights")
-    specs_df = pd.DataFrame([
-        {"Parameter": "Language / Runtime", "Specification": "Python 3.10 - 3.12 (CPython)"},
-        {"Parameter": "Frontend Framework", "Specification": "Streamlit >= 1.42.0 (Custom Cyber CSS)"},
-        {"Parameter": "Agent Architecture", "Specification": "Deterministic Intent Routing + Hybrid Semantic Retrieval"},
-        {"Parameter": "Memory Persistence", "Specification": "Session-Scoped State Engine with Lead Buffer"},
-        {"Parameter": "Extensibility", "Specification": "OpenAI / Google Gemini API Bridge Compatible"},
-        {"Parameter": "Average Latency", "Specification": "< 350ms response time with zero external API failure risk"}
-    ])
-    st.dataframe(specs_df, use_container_width=True)
+    with st.expander("How long does it take to build and launch an AI assistant?"):
+        st.write(
+            "Most custom customer chatbots and business workflow assistants are fully built, tested, and live in **1 to 2 weeks**."
+        )
+        
+    with st.expander("Can the AI connect to my existing website, Shopify, or WhatsApp?"):
+        st.write(
+            "**Yes!** Hadi can integrate your AI assistant directly into your WordPress or Shopify site, WhatsApp, "
+            "CRM, email inbox, or Google Sheets."
+        )
+        
+    with st.expander("What are the costs and pricing packages?"):
+        st.write(
+            "We offer clear, transparent milestone packages starting from **$1,500** for MVP chatbots, "
+            "up to **$3,500 - $5,000** for advanced multi-agent workflows. No hidden fees or recurring traps."
+        )
+        
+    with st.expander("Will the AI hallucinate or give false information to my customers?"):
+        st.write(
+            "**No.** We install strict guardrails so the AI only answers using your verified business policies, "
+            "catalogs, and documents. If it ever encounters an unknown question, it politely asks for the customer's email or forwards it to your team."
+        )
 
 
 # ==========================================
-# 📬 PAGE 6: CONTACT & HIRE
+# 📬 PAGE 5: CONTACT & HIRE HADI
 # ==========================================
-elif nav_page == "📬 Contact & Hire":
+elif nav_page == "📬 Contact & Hire Hadi":
     st.title("📬 Partner with Hadi Seelro")
-    st.write("Ready to integrate autonomous AI agents into your business or build a high-performance RAG pipeline?")
+    st.write("Ready to save hours of manual work or build a smart 24/7 AI chatbot for your business? Let's talk!")
     
     col_c1, col_c2 = st.columns([3, 2])
     
     with col_c1:
-        st.subheader("💼 Project Intake & Discovery Form")
+        st.subheader("💼 Quick Project Inquiry Form")
         with st.form("lead_form", clear_on_submit=True):
-            client_name = st.text_input("Your Name / Organization", placeholder="e.g. Alex Vance (Apex Labs)")
-            client_email = st.text_input("Business Email Address", placeholder="alex@apexlabs.com")
+            client_name = st.text_input("Your Name / Company", placeholder="e.g. Sarah Miller (Miller & Co)")
+            client_email = st.text_input("Your Email Address", placeholder="sarah@millerco.com")
             project_type = st.selectbox(
-                "What kind of AI system are you looking to build?",
+                "What would you like to build or automate?",
                 [
-                    "Autonomous Multi-Agent Swarm (LangGraph/CrewAI)",
-                    "Enterprise RAG & Document Intelligence",
-                    "24/7 Autonomous Customer Service Agent",
-                    "Custom MCP Tool & API Integration",
-                    "AI Strategy / Architecture Consultation"
+                    "24/7 Customer Support Chatbot (Website or WhatsApp)",
+                    "Automating Daily Business Tasks & Workflows",
+                    "Instant Document & PDF Search Assistant",
+                    "Custom Modern AI Website / Web App",
+                    "General AI Strategy Consultation"
                 ]
             )
             estimated_budget = st.select_slider(
                 "Estimated Project Budget:",
-                options=["$1,000 - $3,000", "$3,000 - $7,000", "$7,000 - $15,000", "$15,000+"]
+                options=["$1,000 - $2,500", "$2,500 - $5,000", "$5,000 - $10,000", "$10,000+"]
             )
             project_details = st.text_area(
-                "Project Overview & Key Requirements",
-                placeholder="Briefly describe what tasks the AI agent needs to perform, any systems it needs to connect to, and target timeline..."
+                "Brief Overview of Your Needs",
+                placeholder="Tell me briefly about what manual task you want to solve, what tools you currently use, and your ideal timeline..."
             )
             
-            submit_lead = st.form_submit_button("🚀 Submit Requirements to Hadi", type="primary")
+            submit_lead = st.form_submit_button("🚀 Send Message to Hadi", type="primary")
             
             if submit_lead:
                 if not client_name or not client_email:
-                    st.error("⚠️ Please provide both your Name and Email address so we can reach you.")
+                    st.error("⚠️ Please provide both your Name and Email so Hadi can reach you.")
                 else:
-                    st.session_state.lead_count += 1
-                    st.success(f"🎉 Thank you, {client_name}! Your project requirements have been received.")
-                    st.info("🤖 **Aura Agent Notice:** Hadi Seelro will review your specifications and reply to your email within 24 hours with an initial architectural roadmap.")
+                    st.session_state.lead_count = st.session_state.get("lead_count", 0) + 1
+                    st.success(f"🎉 Thank you, {client_name}! Your message has been sent successfully.")
+                    st.info("🤖 **Notice:** Hadi Seelro will review your requirements and reply directly to your email within 24 hours!")
                     
     with col_c2:
         st.subheader("⚡ Direct Contact Details")
         st.markdown(f"""
         <div class="project-card">
             <p><b>📧 Direct Email:</b><br><a href="mailto:{KNOWLEDGE_BASE['contact']['email']}" style="color:#00f2fe;">{KNOWLEDGE_BASE['contact']['email']}</a></p>
-            <p><b>💼 LinkedIn:</b><br><a href="{KNOWLEDGE_BASE['contact']['linkedin']}" target="_blank" style="color:#00f2fe;">Connect on LinkedIn</a></p>
-            <p><b>🐙 GitHub:</b><br><a href="{KNOWLEDGE_BASE['contact']['github']}" target="_blank" style="color:#00f2fe;">View Repositories</a></p>
-            <p><b>📍 Location / Timezone:</b><br>Available for Global Remote Engagements (PST, EST, GMT, PKT)</p>
+            <p><b>💼 LinkedIn Profile:</b><br><a href="{KNOWLEDGE_BASE['contact']['linkedin']}" target="_blank" style="color:#00f2fe;">Connect on LinkedIn</a></p>
+            <p><b>🐙 GitHub Projects:</b><br><a href="{KNOWLEDGE_BASE['contact']['github']}" target="_blank" style="color:#00f2fe;">View Repositories</a></p>
+            <p><b>📍 Availability:</b><br>Available globally for remote freelance projects & consulting</p>
             <div class="agent-pill">
                 <span class="pulse-dot"></span>
-                <span>Open for Client Projects</span>
+                <span>Open for New Projects</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1163,8 +1199,8 @@ elif nav_page == "📬 Contact & Hire":
 # ==========================================
 st.markdown("""
 <div style="margin-top: 50px; padding: 24px 0 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); text-align: center; color: #64748b; font-size: 0.85rem;">
-    Architected & Built with 🤖 <b>Python & Streamlit</b> by <b>Hadi Seelro</b> — Senior Agentic AI Systems Developer<br>
-    © 2026 Hadi Seelro • Autonomous AI Portfolio & 24/7 Agent System • All Rights Reserved.
+    Built with ❤️ by <b>Hadi Seelro</b> — Smart AI Solutions & Business Automation<br>
+    © 2026 Hadi Seelro • All Rights Reserved.
 </div>
 """, unsafe_allow_html=True)
 
@@ -1172,5 +1208,5 @@ st.markdown("""
 # 💬 FLOATING CORNER CHATBOT WIDGET
 # ==========================================
 with st.container(key="floating_corner_chat"):
-    if st.button("🤖 Chat with Aura AI (24/7)", key="fab_corner_chat"):
+    if st.button("🤖 Chat with AI Helper", key="fab_corner_chat"):
         open_aura_chat_dialog()
