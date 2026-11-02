@@ -282,6 +282,35 @@ st.markdown("""
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
         border-radius: 10px !important;
     }
+
+    /* Floating Corner Chat Widget Button */
+    .st-key-floating_corner_chat {
+        position: fixed !important;
+        bottom: 24px !important;
+        right: 24px !important;
+        z-index: 999999 !important;
+    }
+
+    .st-key-floating_corner_chat button {
+        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(56, 189, 248, 0.5) !important;
+        border-radius: 9999px !important;
+        padding: 12px 24px !important;
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        box-shadow: 0 10px 28px rgba(2, 132, 199, 0.5) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
+    }
+
+    .st-key-floating_corner_chat button:hover {
+        transform: scale(1.05) translateY(-2px) !important;
+        box-shadow: 0 14px 35px rgba(56, 189, 248, 0.65) !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -466,6 +495,72 @@ if "lead_count" not in st.session_state:
     st.session_state.lead_count = 3
 
 # ==========================================
+# 💬 AURA AI CHAT DIALOG (MODAL & CORNER WIDGET)
+# ==========================================
+@st.dialog("🤖 Aura AI • 24/7 Client Concierge", width="large")
+def open_aura_chat_dialog():
+    st.markdown(
+        "<p style='color: #cbd5e1; font-size: 0.95rem; margin-top: -8px; margin-bottom: 14px;'>"
+        "Welcome! I am <b>Aura</b>, Hadi's autonomous client concierge. Ask about services, project pricing, "
+        "multi-agent architectures, or schedule an architectural consultation."
+        "</p>",
+        unsafe_allow_html=True
+    )
+    
+    # Quick Prompt Chips
+    st.caption("⚡ Quick inquiries:")
+    col_qp1, col_qp2 = st.columns(2)
+    quick_input = None
+    if col_qp1.button("💼 What services do you offer?", key="dlg_qp1", use_container_width=True):
+        quick_input = "What services do you offer?"
+    if col_qp2.button("💰 Estimate project cost & timeline", key="dlg_qp2", use_container_width=True):
+        quick_input = "How much does a custom AI agent cost?"
+        
+    col_qp3, col_qp4 = st.columns(2)
+    if col_qp3.button("🧠 Tell me about Hadi's projects", key="dlg_qp3", use_container_width=True):
+        quick_input = "Tell me about Hadi's projects and case studies"
+    if col_qp4.button("📬 How can I hire or contact Hadi?", key="dlg_qp4", use_container_width=True):
+        quick_input = "How can I contact and hire Hadi Seelro?"
+        
+    st.markdown("---")
+    
+    # Message History Container
+    msg_box = st.container(height=360)
+    with msg_box:
+        for msg in st.session_state.messages:
+            with st.chat_message(msg["role"], avatar="🤖" if msg["role"] == "assistant" else "👤"):
+                st.markdown(msg["content"])
+                if "time" in msg:
+                    st.caption(f"🕒 {msg['time']}")
+
+    # Chat Input
+    prompt = st.chat_input("Ask Aura anything...", key="dlg_chat_input")
+    if quick_input:
+        prompt = quick_input
+
+    if prompt:
+        current_time = datetime.now().strftime("%I:%M %p")
+        # 1. Add User Message
+        st.session_state.messages.append({
+            "role": "user",
+            "content": prompt,
+            "time": current_time
+        })
+        # 2. Generate Response
+        reply = generate_agent_response(prompt)
+        st.session_state.messages.append({
+            "role": "assistant",
+            "content": reply,
+            "time": current_time
+        })
+        st.rerun()
+
+    if len(st.session_state.messages) > 1:
+        if st.button("🧹 Clear Conversation", key="dlg_clear_chat", type="secondary"):
+            st.session_state.messages = [st.session_state.messages[0]]
+            st.rerun()
+
+# ==========================================
 # 📌 SIDEBAR NAVIGATION & SYSTEM METRICS
 # ==========================================
 with st.sidebar:
@@ -481,14 +576,17 @@ with st.sidebar:
         </div>
     """, unsafe_allow_html=True)
     
+    # Direct Chat Trigger in Sidebar Corner
+    if st.button("💬 Chat with Aura AI (24/7)", key="sidebar_chat_btn", use_container_width=True, type="primary"):
+        open_aura_chat_dialog()
+        
     st.markdown("---")
     
-    # Navigation Radio
+    # Navigation Radio (Chatbot separated into floating widget)
     nav_page = st.radio(
         "⚡ Navigation",
         [
             "🏠 Overview & Bio",
-            "🤖 24/7 Aura AI Agent",
             "⚡ Agentic AI Lab (Demos)",
             "🛠️ Project Showcase",
             "📑 System Specs & Architecture",
@@ -631,90 +729,7 @@ if nav_page == "🏠 Overview & Bio":
 
 
 # ==========================================
-# 🤖 PAGE 2: 24/7 AURA AI AGENT
-# ==========================================
-elif nav_page == "🤖 24/7 Aura AI Agent":
-    st.markdown("""
-        <div class="hero-card" style="padding: 20px 24px; margin-bottom: 16px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <div>
-                    <h2 style="margin: 0; color: #00f2fe; font-size: 1.8rem;">🤖 Aura AI Client Concierge</h2>
-                    <p style="margin: 4px 0 0 0; color: #94a3b8; font-size: 0.9rem;">
-                        Autonomous 24/7 client management agent. Ask questions, explore pricing, or estimate project timelines.
-                    </p>
-                </div>
-                <div class="agent-pill">
-                    <span class="pulse-dot"></span>
-                    <span>Live 24/7 Knowledge Base Active</span>
-                </div>
-            </div>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    # Quick Prompt Chips
-    st.caption("⚡ Click a quick prompt or type your query below:")
-    col_qp1, col_qp2, col_qp3, col_qp4 = st.columns(4)
-    
-    quick_input = None
-    if col_qp1.button("💼 What services do you offer?", use_container_width=True):
-        quick_input = "What services do you offer?"
-    if col_qp2.button("💰 Estimate project cost & timeline", use_container_width=True):
-        quick_input = "How much does a custom AI agent cost?"
-    if col_qp3.button("🧠 Tell me about Hadi's projects", use_container_width=True):
-        quick_input = "Tell me about Hadi's projects and case studies"
-    if col_qp4.button("📬 How can I hire or contact Hadi?", use_container_width=True):
-        quick_input = "How can I contact and hire Hadi Seelro?"
-        
-    st.markdown("---")
-    
-    # Display Chat History
-    for msg in st.session_state.messages:
-        with st.chat_message(msg["role"], avatar="🤖" if msg["role"] == "assistant" else "👤"):
-            st.markdown(msg["content"])
-            if "time" in msg:
-                st.caption(f"🕒 {msg['time']}")
-                
-    # Handle Input (via chat input or quick prompt chip)
-    prompt = st.chat_input("Ask Aura anything about Hadi's services, project costs, or AI agents...")
-    if quick_input:
-        prompt = quick_input
-        
-    if prompt:
-        current_time = datetime.now().strftime("%I:%M %p")
-        # 1. Add User Message
-        st.session_state.messages.append({
-            "role": "user",
-            "content": prompt,
-            "time": current_time
-        })
-        with st.chat_message("user", avatar="👤"):
-            st.markdown(prompt)
-            st.caption(f"🕒 {current_time}")
-            
-        # 2. Assistant Thinking Simulation & Response
-        with st.chat_message("assistant", avatar="🤖"):
-            with st.spinner("🤖 Aura is analyzing query and querying Hadi's knowledge base..."):
-                time.sleep(0.4) # Realistic agent reflection latency
-                reply = generate_agent_response(prompt)
-                st.markdown(reply)
-                st.caption(f"🕒 {current_time} • Verified by Aura Autonomous Engine")
-                
-        # 3. Save Assistant Message
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": reply,
-            "time": current_time
-        })
-        
-    # Clear Chat Button
-    if len(st.session_state.messages) > 1:
-        if st.button("🧹 Clear Chat History", type="secondary"):
-            st.session_state.messages = [st.session_state.messages[0]]
-            st.rerun()
-
-
-# ==========================================
-# ⚡ PAGE 3: AGENTIC AI LAB (INTERACTIVE DEMOS)
+# ⚡ PAGE 2: AGENTIC AI LAB (INTERACTIVE DEMOS)
 # ==========================================
 elif nav_page == "⚡ Agentic AI Lab (Demos)":
     st.title("⚡ Interactive Agentic AI Playground")
@@ -979,3 +994,10 @@ st.markdown("""
     © 2026 Hadi Seelro • Autonomous AI Portfolio & 24/7 Agent System • All Rights Reserved.
 </div>
 """, unsafe_allow_html=True)
+
+# ==========================================
+# 💬 FLOATING CORNER CHATBOT WIDGET
+# ==========================================
+with st.container(key="floating_corner_chat"):
+    if st.button("🤖 Chat with Aura AI (24/7)", key="fab_corner_chat"):
+        open_aura_chat_dialog()
