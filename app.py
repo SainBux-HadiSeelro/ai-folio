@@ -283,34 +283,57 @@ st.markdown("""
         border-radius: 10px !important;
     }
 
-    /* Floating Corner Chat Widget Button (Right Side) */
+    /* Floating Corner Chat Widget Button (Guaranteed Right Side) */
     .st-key-floating_corner_chat {
         position: fixed !important;
         bottom: 24px !important;
         right: 24px !important;
         left: auto !important;
+        width: auto !important;
         z-index: 999999 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        pointer-events: none !important;
     }
 
+    .st-key-fab_corner_chat {
+        position: fixed !important;
+        bottom: 24px !important;
+        right: 24px !important;
+        left: auto !important;
+        width: auto !important;
+        z-index: 999999 !important;
+        pointer-events: auto !important;
+    }
+
+    .st-key-fab_corner_chat > button,
     .st-key-floating_corner_chat button {
+        position: fixed !important;
+        bottom: 24px !important;
+        right: 24px !important;
+        left: auto !important;
+        width: auto !important;
+        margin: 0 !important;
         background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
         color: #ffffff !important;
         border: 1px solid rgba(56, 189, 248, 0.5) !important;
         border-radius: 9999px !important;
-        padding: 10px 18px !important;
-        font-size: 0.88rem !important;
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
         font-weight: 700 !important;
-        box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45) !important;
+        box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5) !important;
         display: flex !important;
         align-items: center !important;
         gap: 6px !important;
         cursor: pointer !important;
+        pointer-events: auto !important;
         transition: all 0.25s ease !important;
     }
 
+    .st-key-fab_corner_chat > button:hover,
     .st-key-floating_corner_chat button:hover {
         transform: scale(1.05) translateY(-2px) !important;
-        box-shadow: 0 12px 30px rgba(56, 189, 248, 0.6) !important;
+        box-shadow: 0 12px 32px rgba(56, 189, 248, 0.65) !important;
     }
 
     /* Compact Dialog Aligned Towards Right on Desktop */
