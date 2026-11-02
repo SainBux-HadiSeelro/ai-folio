@@ -775,14 +775,6 @@ with st.sidebar:
     st.markdown("✅ **100% Custom Built** for your needs")
     st.markdown("✅ **24/7 Support** & Fast Delivery")
     st.markdown("✅ **Zero Tech Headaches** for you")
-    
-    st.markdown("---")
-    
-    # Quick Links
-    st.markdown("### 🔗 Connect Directly")
-    st.markdown(f"- 📧 [Email Hadi](mailto:{KNOWLEDGE_BASE['contact']['email']})")
-    st.markdown(f"- 💼 [LinkedIn Profile]({KNOWLEDGE_BASE['contact']['linkedin']})")
-    st.markdown(f"- 🐙 [GitHub Repositories]({KNOWLEDGE_BASE['contact']['github']})")
 
 
 # ==========================================
