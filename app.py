@@ -283,12 +283,12 @@ st.markdown("""
         border-radius: 10px !important;
     }
 
-    /* Floating Corner Chat Widget Button (Left Side) */
+    /* Floating Corner Chat Widget Button (Right Side) */
     .st-key-floating_corner_chat {
         position: fixed !important;
         bottom: 24px !important;
-        left: 24px !important;
-        right: auto !important;
+        right: 24px !important;
+        left: auto !important;
         z-index: 999999 !important;
     }
 
@@ -313,11 +313,11 @@ st.markdown("""
         box-shadow: 0 12px 30px rgba(56, 189, 248, 0.6) !important;
     }
 
-    /* Compact Dialog Aligned Towards Left on Desktop */
+    /* Compact Dialog Aligned Towards Right on Desktop */
     @media (min-width: 768px) {
         div[data-testid="stDialog"] > div {
-            margin-left: 28px !important;
-            margin-right: auto !important;
+            margin-right: 28px !important;
+            margin-left: auto !important;
             max-width: 440px !important;
         }
     }
