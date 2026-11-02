@@ -2,18 +2,22 @@
 
 # 🚀 Autonomous Agentic AI Developer Portfolio & 24/7 Client Agent System
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://python.org)
-[![Agentic AI](https://img.shields.io/badge/Architecture-Multi--Agent%20Swarm-00F2FE.svg?logo=openai&logoColor=black)](https://github.com/hadiseelro)
+[![Live App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-folio.streamlit.app/)
+[![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg?logo=python&logoColor=white)](https://python.org)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-SainBux--HadiSeelro%2Fai--folio-181717.svg?logo=github&logoColor=white)](https://github.com/SainBux-HadiSeelro/ai-folio)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)](#)
-[![Status](https://img.shields.io/badge/Production-Live%2024%2F7-10B981.svg)](#)
+[![Production Status](https://img.shields.io/badge/Production-Live%2024%2F7-10B981.svg)](https://ai-folio.streamlit.app/)
+
+<br/>
+
+### 🌐 **Live Website Link:**  
+👉 **[https://ai-folio.streamlit.app/](https://ai-folio.streamlit.app/)** 👈
 
 <p align="center">
   <b>An interactive, production-ready AI showcase engineered to demonstrate real-world Agentic AI capabilities, autonomous client management, and multi-agent orchestration.</b>
 </p>
 
-[Explore Live Demos](#-interactive-agentic-demos) • [System Specifications](#-system-architecture--specs) • [Quickstart](#-quickstart-guide) • [Contact Hadi](#-hire--collaborate)
+[🚀 Open Live App](https://ai-folio.streamlit.app/) • [Explore Capabilities](#-key-capabilities--highlights) • [System Specifications](#-system-architecture) • [Quickstart](#-quickstart-guide) • [Contact Hadi](#-hire--collaborate)
 
 ---
 
@@ -137,10 +141,9 @@ Detailed architecture specifications, component breakdowns, security guardrails,
 
 Looking to build autonomous multi-agent workflows, deploy production RAG pipelines, or automate your business operations?
 
+- 🌐 **Live Web App:** [https://ai-folio.streamlit.app/](https://ai-folio.streamlit.app/)
 - 👤 **Architect:** Hadi Seelro
-- 📧 **Direct Email:** [hadi.seelro@example.com](mailto:hadi.seelro@example.com)
-- 💼 **LinkedIn:** [linkedin.com/in/hadiseelro](https://linkedin.com/in/hadiseelro)
-- 🐙 **GitHub:** [github.com/hadiseelro](https://github.com/hadiseelro)
+- 🐙 **GitHub Repo:** [github.com/SainBux-HadiSeelro/ai-folio](https://github.com/SainBux-HadiSeelro/ai-folio)
 - 🟢 **Status:** Available for Enterprise Consulting, Contract Roles & Full-time Remote Opportunities
 
 ---
