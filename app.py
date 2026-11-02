@@ -762,8 +762,7 @@ with st.sidebar:
             "🏠 Home & Overview",
             "⚡ Try Live Demos",
             "🛠️ Services & What I Build",
-            "💡 How It Works & FAQ",
-            "📬 Contact & Hire Hadi"
+            "💡 How It Works & FAQ"
         ],
         index=0
     )
@@ -1125,65 +1124,6 @@ elif nav_page == "💡 How It Works & FAQ":
             "**No.** We install strict guardrails so the AI only answers using your verified business policies, "
             "catalogs, and documents. If it ever encounters an unknown question, it politely asks for the customer's email or forwards it to your team."
         )
-
-
-# ==========================================
-# 📬 PAGE 5: CONTACT & HIRE HADI
-# ==========================================
-elif nav_page == "📬 Contact & Hire Hadi":
-    st.title("📬 Partner with Hadi Seelro")
-    st.write("Ready to save hours of manual work or build a smart 24/7 AI chatbot for your business? Let's talk!")
-    
-    col_c1, col_c2 = st.columns([3, 2])
-    
-    with col_c1:
-        st.subheader("💼 Quick Project Inquiry Form")
-        with st.form("lead_form", clear_on_submit=True):
-            client_name = st.text_input("Your Name / Company", placeholder="e.g. Sarah Miller (Miller & Co)")
-            client_email = st.text_input("Your Email Address", placeholder="sarah@millerco.com")
-            project_type = st.selectbox(
-                "What would you like to build or automate?",
-                [
-                    "24/7 Customer Support Chatbot (Website or WhatsApp)",
-                    "Automating Daily Business Tasks & Workflows",
-                    "Instant Document & PDF Search Assistant",
-                    "Custom Modern AI Website / Web App",
-                    "General AI Strategy Consultation"
-                ]
-            )
-            estimated_budget = st.select_slider(
-                "Estimated Project Budget:",
-                options=["$1,000 - $2,500", "$2,500 - $5,000", "$5,000 - $10,000", "$10,000+"]
-            )
-            project_details = st.text_area(
-                "Brief Overview of Your Needs",
-                placeholder="Tell me briefly about what manual task you want to solve, what tools you currently use, and your ideal timeline..."
-            )
-            
-            submit_lead = st.form_submit_button("🚀 Send Message to Hadi", type="primary")
-            
-            if submit_lead:
-                if not client_name or not client_email:
-                    st.error("⚠️ Please provide both your Name and Email so Hadi can reach you.")
-                else:
-                    st.session_state.lead_count = st.session_state.get("lead_count", 0) + 1
-                    st.success(f"🎉 Thank you, {client_name}! Your message has been sent successfully.")
-                    st.info("🤖 **Notice:** Hadi Seelro will review your requirements and reply directly to your email within 24 hours!")
-                    
-    with col_c2:
-        st.subheader("⚡ Direct Contact Details")
-        st.markdown(f"""
-        <div class="project-card">
-            <p><b>📧 Direct Email:</b><br><a href="mailto:{KNOWLEDGE_BASE['contact']['email']}" style="color:#00f2fe;">{KNOWLEDGE_BASE['contact']['email']}</a></p>
-            <p><b>💼 LinkedIn Profile:</b><br><a href="{KNOWLEDGE_BASE['contact']['linkedin']}" target="_blank" style="color:#00f2fe;">Connect on LinkedIn</a></p>
-            <p><b>🐙 GitHub Projects:</b><br><a href="{KNOWLEDGE_BASE['contact']['github']}" target="_blank" style="color:#00f2fe;">View Repositories</a></p>
-            <p><b>📍 Availability:</b><br>Available globally for remote freelance projects & consulting</p>
-            <div class="agent-pill">
-                <span class="pulse-dot"></span>
-                <span>Open for New Projects</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
 
 
 # ==========================================
