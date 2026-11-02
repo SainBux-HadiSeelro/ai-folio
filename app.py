@@ -283,11 +283,12 @@ st.markdown("""
         border-radius: 10px !important;
     }
 
-    /* Floating Corner Chat Widget Button */
+    /* Floating Corner Chat Widget Button (Left Side) */
     .st-key-floating_corner_chat {
         position: fixed !important;
         bottom: 24px !important;
-        right: 24px !important;
+        left: 24px !important;
+        right: auto !important;
         z-index: 999999 !important;
     }
 
@@ -296,20 +297,29 @@ st.markdown("""
         color: #ffffff !important;
         border: 1px solid rgba(56, 189, 248, 0.5) !important;
         border-radius: 9999px !important;
-        padding: 12px 24px !important;
-        font-size: 0.95rem !important;
+        padding: 10px 18px !important;
+        font-size: 0.88rem !important;
         font-weight: 700 !important;
-        box-shadow: 0 10px 28px rgba(2, 132, 199, 0.5) !important;
+        box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45) !important;
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 6px !important;
         cursor: pointer !important;
         transition: all 0.25s ease !important;
     }
 
     .st-key-floating_corner_chat button:hover {
         transform: scale(1.05) translateY(-2px) !important;
-        box-shadow: 0 14px 35px rgba(56, 189, 248, 0.65) !important;
+        box-shadow: 0 12px 30px rgba(56, 189, 248, 0.6) !important;
+    }
+
+    /* Compact Dialog Aligned Towards Left on Desktop */
+    @media (min-width: 768px) {
+        div[data-testid="stDialog"] > div {
+            margin-left: 28px !important;
+            margin-right: auto !important;
+            max-width: 440px !important;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -497,41 +507,38 @@ if "lead_count" not in st.session_state:
 # ==========================================
 # 💬 AURA AI CHAT DIALOG (MODAL & CORNER WIDGET)
 # ==========================================
-@st.dialog("🤖 Aura AI • 24/7 Client Concierge", width="large")
+@st.dialog("🤖 Aura AI • 24/7 Client Concierge", width="small")
 def open_aura_chat_dialog():
     st.markdown(
-        "<p style='color: #cbd5e1; font-size: 0.95rem; margin-top: -8px; margin-bottom: 14px;'>"
-        "Welcome! I am <b>Aura</b>, Hadi's autonomous client concierge. Ask about services, project pricing, "
-        "multi-agent architectures, or schedule an architectural consultation."
+        "<p style='color: #cbd5e1; font-size: 0.88rem; margin-top: -10px; margin-bottom: 10px;'>"
+        "Hadi's 24/7 autonomous client concierge. Ask questions or tap an inquiry below."
         "</p>",
         unsafe_allow_html=True
     )
     
-    # Quick Prompt Chips
-    st.caption("⚡ Quick inquiries:")
-    col_qp1, col_qp2 = st.columns(2)
-    quick_input = None
-    if col_qp1.button("💼 What services do you offer?", key="dlg_qp1", use_container_width=True):
-        quick_input = "What services do you offer?"
-    if col_qp2.button("💰 Estimate project cost & timeline", key="dlg_qp2", use_container_width=True):
-        quick_input = "How much does a custom AI agent cost?"
-        
-    col_qp3, col_qp4 = st.columns(2)
-    if col_qp3.button("🧠 Tell me about Hadi's projects", key="dlg_qp3", use_container_width=True):
-        quick_input = "Tell me about Hadi's projects and case studies"
-    if col_qp4.button("📬 How can I hire or contact Hadi?", key="dlg_qp4", use_container_width=True):
-        quick_input = "How can I contact and hire Hadi Seelro?"
-        
-    st.markdown("---")
-    
-    # Message History Container
-    msg_box = st.container(height=360)
+    # Message History Container (Compact & Scrollable)
+    msg_box = st.container(height=260)
     with msg_box:
         for msg in st.session_state.messages:
             with st.chat_message(msg["role"], avatar="🤖" if msg["role"] == "assistant" else "👤"):
                 st.markdown(msg["content"])
                 if "time" in msg:
                     st.caption(f"🕒 {msg['time']}")
+
+    # Quick Question Chips at the BOTTOM (Neeche)
+    st.caption("⚡ Quick Questions:")
+    col_qp1, col_qp2 = st.columns(2)
+    quick_input = None
+    if col_qp1.button("💼 Services & Rates", key="dlg_qp1", use_container_width=True):
+        quick_input = "What services do you offer?"
+    if col_qp2.button("💰 Cost & Timeline", key="dlg_qp2", use_container_width=True):
+        quick_input = "How much does a custom AI agent cost?"
+        
+    col_qp3, col_qp4 = st.columns(2)
+    if col_qp3.button("🧠 Case Studies", key="dlg_qp3", use_container_width=True):
+        quick_input = "Tell me about Hadi's projects and case studies"
+    if col_qp4.button("📬 Hire / Contact", key="dlg_qp4", use_container_width=True):
+        quick_input = "How can I contact and hire Hadi Seelro?"
 
     # Chat Input
     prompt = st.chat_input("Ask Aura anything...", key="dlg_chat_input")
@@ -556,7 +563,7 @@ def open_aura_chat_dialog():
         st.rerun()
 
     if len(st.session_state.messages) > 1:
-        if st.button("🧹 Clear Conversation", key="dlg_clear_chat", type="secondary"):
+        if st.button("🧹 Clear Chat", key="dlg_clear_chat", type="secondary"):
             st.session_state.messages = [st.session_state.messages[0]]
             st.rerun()
 
