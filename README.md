@@ -1,90 +1,116 @@
 <div align="center">
 
-# 🚀 Autonomous Agentic AI Developer Portfolio & 24/7 Client Agent System
-
-[![Live App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-folio.streamlit.app/)
-[![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg?logo=python&logoColor=white)](https://python.org)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-SainBux--HadiSeelro%2Fai--folio-181717.svg?logo=github&logoColor=white)](https://github.com/SainBux-HadiSeelro/ai-folio)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Production Status](https://img.shields.io/badge/Production-Live%2024%2F7-10B981.svg)](https://ai-folio.streamlit.app/)
+# 🤖 Aura AI & Autonomous Business Engineering Portfolio
+### *Production-Ready Multi-Agent Systems • 24/7 Client Concierge • Intelligent Automation*
 
 <br/>
 
-### 🌐 **Live Website Link:**  
-👉 **[https://ai-folio.streamlit.app/](https://ai-folio.streamlit.app/)** 👈
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-folio.streamlit.app/)
+[![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.42+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![Gemini AI](https://img.shields.io/badge/Google_Gemini-2.5_%2F_Flash-8E75C2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-<p align="center">
-  <b>An interactive, production-ready AI showcase engineered to demonstrate real-world Agentic AI capabilities, autonomous client management, and multi-agent orchestration.</b>
-</p>
-
-[🚀 Open Live App](https://ai-folio.streamlit.app/) • [Explore Capabilities](#-key-capabilities--highlights) • [System Specifications](#-system-architecture) • [Quickstart](#-quickstart-guide) • [Contact Hadi](#-hire--collaborate)
+<br/>
 
 ---
+
+### 🌐 **Live Interactive Web Application**
+### 👉 **[https://ai-folio.streamlit.app/](https://ai-folio.streamlit.app/)** 👈
+
+*Experience the 24/7 live AI concierge, run interactive business automation simulations, and calculate enterprise ROI in real-time.*
+
+---
+
+[🚀 Launch Live App](https://ai-folio.streamlit.app/) • [✨ Core Features](#-core-features) • [🏛️ System Architecture](#️-system-architecture) • [⚡ Quickstart](#-quickstart-guide) • [📬 Contact Hadi](#-contact--hire)
 
 </div>
 
-## 🌟 Overview
+<br/>
 
-Unlike conventional static developer portfolios, this web application is **an autonomous AI system in itself**. It showcases what an **Agentic AI Engineer** builds:
-- 🤖 **24/7 Live Autonomous Client Agent ("Aura")**: An embedded AI agent with complete contextual memory of the developer's experience, multi-agent frameworks, transparent project pricing, and automated lead capture.
-- ⚡ **Interactive Multi-Agent Swarm Lab**: Real-time simulation of a 3-agent collaborative swarm (Researcher $\to$ Analyst $\to$ Synthesizer) executing enterprise workflows.
-- 💰 **Enterprise AI Token & ROI Calculator**: Instant business value and cost-savings estimation for prospective clients.
-- 🎨 **Modern Cyber-Glassmorphism Interface**: Sleek dark aesthetic with glowing telemetry, responsive typography, and animated status monitors.
+## 🌟 Executive Summary
+
+Unlike standard static portfolio websites, **AI-Folio** is itself an **active, production-grade autonomous AI application**. Engineered specifically for businesses and non-technical stakeholders, it demonstrates how **Agentic AI** automates daily operations, drives lead conversion, and reduces manual overhead.
+
+### 🎯 Key Highlights:
+- 🤖 **Aura AI Client Concierge (24/7)**: An embedded autonomous assistant with comprehensive knowledge of Hadi's engineering capabilities, case studies, and services. Features dual-colored chat bubbles, mobile-responsive docking, and instant history clearing.
+- ⚡ **Interactive Business Automation Lab**: Live simulation of autonomous multi-agent pipelines (News tracking, competitive intelligence, and automated briefings).
+- 💰 **Business ROI & Time-Savings Calculator**: Interactive tool helping business owners quantify exactly how many hours and dollars AI automation saves every month.
+- 🎨 **Cyber-Glass Dark Canvas**: High-contrast, responsive glassmorphism UI engineered with custom CSS, dark-mode tokens, and accessibility standards.
 
 ---
 
-## 🛠️ Key Capabilities & Highlights
+## ✨ Core Features
 
-| Feature | Description | Business Impact |
+| Feature | Engineering Implementation | Business Value |
 | :--- | :--- | :--- |
-| **24/7 Aura AI Agent** | Autonomous conversational concierge answering inquiries, quoting ballpark estimates, and collecting client leads. | Zero visitor drop-off; immediate customer qualification. |
-| **Swarm Orchestrator** | Visual multi-agent pipeline simulating LangGraph / CrewAI sequential and parallel state machines. | Demonstrates real autonomous reasoning and verification. |
-| **AI ROI Calculator** | Interactive tool calculating labor hours saved, monthly LLM token overhead, and net return on investment. | Helps enterprise clients quantify business value upfront. |
-| **Verified Specs Hub** | Full in-app technical architecture and downloadable specifications. | Demonstrates enterprise documentation rigor. |
+| **🤖 Aura AI Concierge** | Dual-mode hybrid engine: Live Google Gemini LLM REST API + local intent classifier with persistent session memory. | 24/7 immediate visitor qualification, automated inquiry handling, zero lead drop-off. |
+| **⚡ Multi-Agent Swarm Lab** | 3-stage agent pipeline (`Researcher` $\to$ `Analyst` $\to$ `Synthesizer`) demonstrating autonomous tool execution. | Replaces 15+ hours/week of manual research and report generation. |
+| **📊 ROI Savings Calculator** | Dynamic mathematical model evaluating staff hourly rates, recurring hours, and token overhead. | Quantifies upfront ROI and cost justification for executive decision-makers. |
+| **🎨 Responsive Cyber UI** | Custom CSS layout with pinned floating launcher, dual-colored message bubbles, and mobile-first responsiveness. | Seamless user experience for non-technical clients across desktop and mobile. |
 
 ---
 
 ## 🏛️ System Architecture
 
-```text
-+---------------------------------------------------------------------------------+
-|                               CLIENT INTERFACE (UI)                             |
-|       Streamlit 1.42+ | Custom Cyber Dark CSS | Real-time Telemetry            |
-+---------------------------------------------------------------------------------+
-                                     |
-                                     v
-+---------------------------------------------------------------------------------+
-|                       ORCHESTRATION & STATE MANAGEMENT                          |
-|  - Session Memory Manager (st.session_state)                                    |
-|  - Intent Detection & Prompt Engineering Pipeline                               |
-|  - Lead Qualification & State Machine                                           |
-+---------------------------------------------------------------------------------+
-          |                                  |                        |
-          v                                  v                        v
-+--------------------+            +--------------------+    +--------------------+
-|   24/7 AURA AGENT  |            | WORKFLOW SIMULATOR |    |  METRICS & TELEMETRY|
-| - Intent Detection |            | - Agent Swarms     |    | - Token ROI Engine |
-| - Knowledge Base   |            | - Tool Execution   |    | - Health Telemetry |
-| - Lead Intake      |            | - Step Streaming   |    | - Live Benchmarks  |
-+--------------------+            +--------------------+    +--------------------+
+The application is structured into decoupled orchestration, inference, state management, and visual presentation layers:
+
+```mermaid
+flowchart TD
+    subgraph ClientLayer["🖥️ Client Presentation Layer"]
+        UI["Streamlit 1.42+ Web Interface"]
+        CSS["Cyber-Glass Theme & Custom CSS Tokens"]
+        FabBtn["Floating Corner AI Launcher"]
+        Dialog["Aura Concierge Modal (Dual-Bubble UI)"]
+    end
+
+    subgraph OrchestrationLayer["⚙️ State & Orchestration Layer"]
+        SM["Session State Manager"]
+        Router["Multi-Intent Query Router"]
+        LeadCapture["Autonomous Lead Intake Pipeline"]
+    end
+
+    subgraph InferenceLayer["🧠 Dual-Mode AI Inference Engine"]
+        Gemini["Google Gemini 2.5 Live REST API"]
+        NLP["Local Deterministic Knowledge Engine"]
+        KB[("Domain Knowledge Base & Specs")]
+    end
+
+    subgraph Simulations["🧪 Interactive Business Demos"]
+        Swarm["Multi-Agent Swarm Pipeline"]
+        Calc["ROI & Cost-Savings Calculator"]
+    end
+
+    UI --> FabBtn --> Dialog
+    Dialog --> SM
+    SM --> Router
+    Router -->|API Key Present| Gemini
+    Router -->|Fallback / Default| NLP
+    NLP <--> KB
+    Gemini <--> KB
+    UI --> Simulations
+    Simulations --> Swarm
+    Simulations --> Calc
 ```
 
 ---
 
-## 💻 Tech Stack & Frameworks
+## 💻 Technology Stack
 
-- **Core Runtime:** Python 3.10 - 3.12
-- **Application Framework:** Streamlit 1.42+
-- **Agentic Paradigms:** Multi-Agent Swarms, Directed Acyclic Graphs (DAG), Tool Calling
-- **AI Integrations:** Google Gemini 2.5/Flash, OpenAI GPT-4o, Claude 3.5 Sonnet
-- **Vector Search & Memory:** ChromaDB, Pinecone, FAISS
-- **Styling & Design:** Vanilla CSS3, Glassmorphism, Responsive Grid System
+```
+Runtime Environment:   Python 3.11
+Application Framework: Streamlit >= 1.35.0 (Running 1.42+)
+AI & LLM Integration:  Google Gemini REST API, Custom NLP Inference
+Data Processing:       Pandas >= 2.0.0
+Styling & Theming:     Custom CSS3, Modern Glassmorphism, Responsive Flexbox
+Deployment Platform:   Streamlit Community Cloud (Continuous Deployment via GitHub)
+```
 
 ---
 
 ## 🚀 Quickstart Guide
 
-Get the project running locally in less than 2 minutes:
+Run the complete portfolio locally in less than 2 minutes:
 
 ### 1. Clone the Repository
 ```bash
@@ -92,62 +118,74 @@ git clone https://github.com/SainBux-HadiSeelro/ai-folio.git
 cd ai-folio
 ```
 
-### 2. Set Up a Virtual Environment (Recommended)
+### 2. Set Up Virtual Environment (Recommended)
 ```bash
+# Windows (PowerShell):
 python -m venv .venv
-
-# On Windows (PowerShell):
 .venv\Scripts\Activate.ps1
 
-# On Linux / macOS:
+# Linux / macOS:
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
 ### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
-# OR using pyproject.toml:
-pip install .
 ```
 
-### 4. Launch the Application
+### 4. Run the Application
 ```bash
-python -m streamlit run app.py
+streamlit run app.py
 ```
+Your default browser will automatically open at `http://localhost:8501`.
 
-The application will launch automatically in your browser at `http://localhost:8501`.
+### 5. (Optional) Configure Live Gemini API Key
+To enable live generative LLM responses, set your Google Gemini API key:
+- **Locally:** Add `.streamlit/secrets.toml`:
+  ```toml
+  GEMINI_API_KEY = "AIzaSy..."
+  ```
+- **In-App:** Enter your key directly in Aura's chat settings expander.
+- **On Streamlit Cloud:** Add `GEMINI_API_KEY` under **App Settings $\to$ Secrets**.
 
 ---
 
 ## 📁 Repository Structure
 
-```
-├── app.py                   # Main Streamlit application & Aura Agent engine
-├── pyproject.toml           # Project metadata & dependency definitions
-├── README.md                # High-impact portfolio documentation
+```text
+ai-folio/
+├── .streamlit/
+│   └── config.toml          # Custom dark mode palette & server configuration
+├── .python-version          # Pinned to Python 3.11 for cloud build stability
+├── app.py                   # Main application, UI components & Aura AI engine
+├── requirements.txt         # Production-locked dependencies
+├── README.md                # Comprehensive documentation
 └── specs/
-    └── project-specs.md     # Comprehensive architecture & engineering specs
+    └── project-specs.md     # Deep-dive architecture specifications
 ```
 
 ---
 
-## 📑 Technical Documentation
+## 🛡️ Enterprise Security & Guardrails
 
-Detailed architecture specifications, component breakdowns, security guardrails, and telemetry details can be found in [specs/project-specs.md](specs/project-specs.md).
+- **Zero Data Leakage:** Chat sessions reside strictly in client-side ephemeral memory (`st.session_state`) with zero cross-tenant bleed.
+- **Strict Guardrails:** The local deterministic engine enforces factual boundaries directly from Hadi's verified business knowledge base, preventing hallucinations.
+- **Graceful Fallback:** If the external LLM API encounters network latency or rate-limiting, the system automatically falls back to the deterministic local engine without user disruption.
 
 ---
 
-## 📬 Hire & Collaborate
+## 📬 Contact & Hire
 
-Looking to build autonomous multi-agent workflows, deploy production RAG pipelines, or automate your business operations?
+Looking to build 24/7 custom AI chatbots, automate repetitive business workflows, or integrate agentic AI pipelines into your company?
 
-- 🌐 **Live Web App:** [https://ai-folio.streamlit.app/](https://ai-folio.streamlit.app/)
-- 👤 **Architect:** Hadi Seelro
-- 🐙 **GitHub Repo:** [github.com/SainBux-HadiSeelro/ai-folio](https://github.com/SainBux-HadiSeelro/ai-folio)
-- 🟢 **Status:** Available for Enterprise Consulting, Contract Roles & Full-time Remote Opportunities
+- 🌐 **Live Web Application:** [ai-folio.streamlit.app](https://ai-folio.streamlit.app/)
+- 👤 **AI Systems Architect:** Hadi Seelro
+- 🐙 **GitHub Repository:** [github.com/SainBux-HadiSeelro/ai-folio](https://github.com/SainBux-HadiSeelro/ai-folio)
+- 🟢 **Availability:** Open for Custom Business AI Projects, Contract Roles & Consulting
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ and autonomous intelligence by <b>Hadi Seelro</b> • © 2026</sub>
+  <sub>Built with ❤️ by <b>Hadi Seelro</b> • © 2026 All Rights Reserved.</sub>
 </div>
