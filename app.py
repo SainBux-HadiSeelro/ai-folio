@@ -216,19 +216,144 @@ st.markdown("""
         border: 1px solid rgba(56, 189, 248, 0.3);
     }
 
-    /* Chat Messages */
+    /* ========================================================
+       💬 AESTHETIC CHATBOT & DISTINCT DUAL-COLORED BUBBLES
+       ======================================================== */
+    /* Base Chat Message */
     [data-testid="stChatMessage"] {
-        background-color: #111a2e !important;
-        border-radius: 12px !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        padding: 16px 20px !important;
+        padding: 12px 16px !important;
         margin-bottom: 12px !important;
+        transition: all 0.2s ease !important;
     }
 
-    [data-testid="stChatMessage"] p, [data-testid="stChatMessage"] li {
-        color: #f8fafc !important;
-        font-size: 1rem !important;
-        line-height: 1.65 !important;
+    /* 👤 USER MESSAGE BUBBLE: Right Side, Vibrant Sapphire Gradient */
+    [data-testid="stChatMessage"]:has(.user-msg-marker),
+    [data-testid="stChatMessage"]:has([aria-label*="user"]),
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+        flex-direction: row-reverse !important;
+        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+        border: 1px solid rgba(56, 189, 248, 0.45) !important;
+        border-radius: 18px 18px 4px 18px !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        width: fit-content !important;
+        max-width: 82% !important;
+        box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35) !important;
+    }
+
+    [data-testid="stChatMessage"]:has(.user-msg-marker) p,
+    [data-testid="stChatMessage"]:has(.user-msg-marker) span,
+    [data-testid="stChatMessage"]:has(.user-msg-marker) li,
+    [data-testid="stChatMessage"]:has([aria-label*="user"]) p,
+    [data-testid="stChatMessage"]:has([aria-label*="user"]) span,
+    [data-testid="stChatMessage"]:has([aria-label*="user"]) li,
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) p,
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) span {
+        color: #ffffff !important;
+        font-weight: 500 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+    }
+
+    [data-testid="stChatMessage"]:has(.user-msg-marker) [data-testid="stChatMessageAvatarCustom"],
+    [data-testid="stChatMessage"]:has([aria-label*="user"]) [data-testid="stChatMessageAvatarCustom"],
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+        background: rgba(255, 255, 255, 0.22) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 50% !important;
+    }
+
+    [data-testid="stChatMessage"]:has(.user-msg-marker) [data-testid="stCaptionContainer"] p,
+    [data-testid="stChatMessage"]:has([aria-label*="user"]) [data-testid="stCaptionContainer"] p {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 0.72rem !important;
+        text-align: right !important;
+        margin-top: 4px !important;
+    }
+
+    /* 🤖 ASSISTANT (AURA) BUBBLE: Left Side, Sleek Cyber Dark-Slate Card */
+    [data-testid="stChatMessage"]:has(.assistant-msg-marker),
+    [data-testid="stChatMessage"]:has([aria-label*="assistant"]),
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) {
+        flex-direction: row !important;
+        background: linear-gradient(135deg, #111a2e 0%, #0d1527 100%) !important;
+        border: 1px solid rgba(56, 189, 248, 0.28) !important;
+        border-radius: 18px 18px 18px 4px !important;
+        margin-right: auto !important;
+        margin-left: 0 !important;
+        width: fit-content !important;
+        max-width: 88% !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(56, 189, 248, 0.05) !important;
+    }
+
+    [data-testid="stChatMessage"]:has(.assistant-msg-marker) p,
+    [data-testid="stChatMessage"]:has(.assistant-msg-marker) li,
+    [data-testid="stChatMessage"]:has([aria-label*="assistant"]) p,
+    [data-testid="stChatMessage"]:has([aria-label*="assistant"]) li,
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) p,
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) li {
+        color: #f1f5f9 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+    }
+
+    [data-testid="stChatMessage"]:has(.assistant-msg-marker) strong,
+    [data-testid="stChatMessage"]:has([aria-label*="assistant"]) strong,
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) strong {
+        color: #38bdf8 !important;
+        font-weight: 700 !important;
+    }
+
+    [data-testid="stChatMessage"]:has(.assistant-msg-marker) [data-testid="stChatMessageAvatarCustom"],
+    [data-testid="stChatMessage"]:has([aria-label*="assistant"]) [data-testid="stChatMessageAvatarCustom"],
+    [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) {
+        background: rgba(14, 165, 233, 0.15) !important;
+        border: 1px solid rgba(56, 189, 248, 0.45) !important;
+        border-radius: 50% !important;
+        box-shadow: 0 0 12px rgba(56, 189, 248, 0.3) !important;
+    }
+
+    [data-testid="stChatMessage"]:has(.assistant-msg-marker) [data-testid="stCaptionContainer"] p,
+    [data-testid="stChatMessage"]:has([aria-label*="assistant"]) [data-testid="stCaptionContainer"] p {
+        color: #94a3b8 !important;
+        font-size: 0.72rem !important;
+        margin-top: 4px !important;
+    }
+
+    /* Modal / Dialog Enhancements */
+    div[data-testid="stDialog"] > div {
+        background-color: #0c1222 !important;
+        border: 1px solid rgba(56, 189, 248, 0.35) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.15) !important;
+    }
+
+    /* Quick question inquiry pill buttons in Dialog */
+    div[data-testid="stDialog"] .stButton > button {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 8px !important;
+        color: #cbd5e1 !important;
+        font-size: 0.8rem !important;
+        font-weight: 600 !important;
+        padding: 6px 12px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    div[data-testid="stDialog"] .stButton > button:hover {
+        background: rgba(56, 189, 248, 0.15) !important;
+        border-color: rgba(56, 189, 248, 0.45) !important;
+        color: #38bdf8 !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* Scrollbar styling for message box */
+    [data-testid="stDialog"] [data-testid="stContainer"]::-webkit-scrollbar {
+        width: 6px;
+    }
+    [data-testid="stDialog"] [data-testid="stContainer"]::-webkit-scrollbar-thumb {
+        background: rgba(56, 189, 248, 0.35);
+        border-radius: 9999px;
     }
 
     /* Tabs */
@@ -343,9 +468,9 @@ st.markdown("""
     /* Compact Dialog Aligned Towards Right on Desktop */
     @media (min-width: 768px) {
         div[data-testid="stDialog"] > div {
-            margin-right: 28px !important;
+            margin-right: 24px !important;
             margin-left: auto !important;
-            max-width: 440px !important;
+            max-width: 460px !important;
         }
     }
 </style>
@@ -636,9 +761,10 @@ def generate_agent_response(user_input: str, history: list = None) -> str:
     return generate_local_nlp_response(user_input)
 
 # ==========================================
-# 🗄️ SESSION STATE INITIALIZATION
+# 🗄️ SESSION STATE INITIALIZATION & RESET
 # ==========================================
-if "messages" not in st.session_state:
+def reset_aura_chat():
+    """Resets the chat conversation to initial welcoming state."""
     st.session_state.messages = [
         {
             "role": "assistant",
@@ -651,6 +777,9 @@ if "messages" not in st.session_state:
         }
     ]
 
+if "messages" not in st.session_state:
+    reset_aura_chat()
+
 if "lead_count" not in st.session_state:
     st.session_state.lead_count = 3
 
@@ -659,12 +788,19 @@ if "lead_count" not in st.session_state:
 # ==========================================
 @st.dialog("🤖 Aura AI • 24/7 Client Concierge", width="small")
 def open_aura_chat_dialog():
-    st.markdown(
-        "<p style='color: #cbd5e1; font-size: 0.88rem; margin-top: -10px; margin-bottom: 8px;'>"
-        "Hadi's 24/7 autonomous client concierge. Ask questions or tap an inquiry below."
-        "</p>",
-        unsafe_allow_html=True
-    )
+    # Top Status & Clear Chat bar
+    col_hdr_status, col_hdr_action = st.columns([0.65, 0.35], vertical_alignment="center")
+    with col_hdr_status:
+        st.markdown(
+            "<div style='display:flex; align-items:center; gap:6px; margin-top:-6px; margin-bottom:6px;'>"
+            "<span style='display:inline-block; width:8px; height:8px; background:#10b981; border-radius:50%; box-shadow:0 0 8px #10b981;'></span>"
+            "<span style='color:#34d399; font-weight:600; font-size:0.82rem;'>Aura Active • Ready to Help</span>"
+            "</div>",
+            unsafe_allow_html=True
+        )
+    with col_hdr_action:
+        if len(st.session_state.messages) > 1:
+            st.button("🧹 Clear Chat", key="dlg_clear_chat_top", on_click=reset_aura_chat, use_container_width=True, help="Clear chat and start fresh")
     
     # Optional Live Gemini Key expander
     with st.expander("🔑 AI Mode: Live Gemini / Knowledge Base", expanded=False):
@@ -674,17 +810,20 @@ def open_aura_chat_dialog():
             st.session_state.user_gemini_key = user_key
             st.success("API Key connected!")
     
-    # Message History Container (Compact & Scrollable)
-    msg_box = st.container(height=260)
+    # Message History Container (Aesthetic, Compact & Scrollable)
+    msg_box = st.container(height=300)
     with msg_box:
         for msg in st.session_state.messages:
-            with st.chat_message(msg["role"], avatar="🤖" if msg["role"] == "assistant" else "👤"):
+            is_user = msg.get("role") == "user"
+            with st.chat_message(msg["role"], avatar="👤" if is_user else "🤖"):
+                marker = '<div class="user-msg-marker"></div>' if is_user else '<div class="assistant-msg-marker"></div>'
+                st.markdown(marker, unsafe_allow_html=True)
                 st.markdown(msg["content"])
                 if "time" in msg:
-                    st.caption(f"🕒 {msg['time']}")
+                    st.caption(f"🕒 {msg['time']}" if is_user else f"🕒 {msg['time']} • Aura Engine")
 
     # Quick Question Chips at the BOTTOM (Neeche)
-    st.caption("⚡ Quick Questions:")
+    st.caption("⚡ Quick Inquiries:")
     col_qp1, col_qp2 = st.columns(2)
     quick_input = None
     if col_qp1.button("💼 Services & Rates", key="dlg_qp1", use_container_width=True):
@@ -705,7 +844,7 @@ def open_aura_chat_dialog():
 
     if prompt:
         current_time = datetime.now().strftime("%I:%M %p")
-        # 1. Add User Message
+        # 1. Add User Message to state
         st.session_state.messages.append({
             "role": "user",
             "content": prompt,
@@ -714,24 +853,25 @@ def open_aura_chat_dialog():
         # 2. Render directly in msg_box (Keeps dialog open!)
         with msg_box:
             with st.chat_message("user", avatar="👤"):
+                st.markdown('<div class="user-msg-marker"></div>', unsafe_allow_html=True)
                 st.markdown(prompt)
                 st.caption(f"🕒 {current_time}")
             with st.chat_message("assistant", avatar="🤖"):
+                st.markdown('<div class="assistant-msg-marker"></div>', unsafe_allow_html=True)
                 with st.spinner("Analyzing with Aura AI..."):
                     reply = generate_agent_response(prompt, st.session_state.messages)
                     st.markdown(reply)
                     st.caption(f"🕒 {current_time} • Verified by Aura Engine")
-        # 3. Save Assistant Message
+        # 3. Save Assistant Message to state
         st.session_state.messages.append({
             "role": "assistant",
             "content": reply,
             "time": current_time
         })
 
+    # Clear Chat option at bottom
     if len(st.session_state.messages) > 1:
-        if st.button("🧹 Clear Chat History", key="dlg_clear_chat", type="secondary"):
-            st.session_state.messages = [st.session_state.messages[0]]
-            st.info("Chat cleared. You can start a fresh conversation above!")
+        st.button("🧹 Clear Chat History", key="dlg_clear_chat_bottom", on_click=reset_aura_chat, use_container_width=True)
 
 # ==========================================
 # 📌 SIDEBAR NAVIGATION & QUICK PROFILE
