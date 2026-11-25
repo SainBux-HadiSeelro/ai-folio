@@ -68,21 +68,22 @@ st.markdown("""
         letter-spacing: 0.05em;
     }
 
-    [data-testid="stSidebar"] [role="radiogroup"] label {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 10px 14px;
+    /* Universal Radio & Navigation Pills */
+    [role="radiogroup"] label {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 9px 16px;
         border-radius: 8px;
         margin-bottom: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         transition: all 0.2s ease;
     }
 
-    [data-testid="stSidebar"] [role="radiogroup"] label:hover {
-        background: rgba(56, 189, 248, 0.1);
-        border-color: rgba(56, 189, 248, 0.3);
+    [role="radiogroup"] label:hover {
+        background: rgba(56, 189, 248, 0.12);
+        border-color: rgba(56, 189, 248, 0.35);
     }
 
-    [data-testid="stSidebar"] [role="radiogroup"] label div p {
+    [role="radiogroup"] label div p {
         color: #f1f5f9 !important;
         font-weight: 500 !important;
     }
@@ -707,7 +708,7 @@ def generate_local_nlp_response(user_input: str) -> str:
             p_text += f"- **Stack:** {', '.join(p['tags'])}\n"
             p_text += f"- **Overview:** {p['desc']}\n"
             p_text += f"- **Metrics:** `{p['metrics']}`\n\n"
-        p_text += "👉 *Sidebar mein **'🛠️ Project Showcase'** tab par click karke full architecture explore karein!*"
+        p_text += "👉 *Upar **'⚡ Try Live Demos'** ya **'🛠️ Services & What I Build'** tab par click karke explore karein!*"
         return p_text
 
     # 9. Hire, Contact & Meeting
@@ -892,25 +893,37 @@ with st.sidebar:
         
     st.markdown("---")
     
-    # Simple, Non-Technical Navigation Menu
-    nav_page = st.radio(
-        "⚡ Explore",
-        [
-            "🏠 Home & Overview",
-            "⚡ Try Live Demos",
-            "🛠️ Services & What I Build",
-            "💡 How It Works & FAQ"
-        ],
-        index=0
-    )
-    
-    st.markdown("---")
-    
     # Simple Trust & Reliability Badges
     st.markdown("### 🌟 Why Work With Hadi?")
     st.markdown("✅ **100% Custom Built** for your needs")
     st.markdown("✅ **24/7 Support** & Fast Delivery")
     st.markdown("✅ **Zero Tech Headaches** for you")
+
+
+# ==========================================
+# ⚡ TOP NAVIGATION HEADER (EXPLORE)
+# ==========================================
+st.markdown("""
+<div style="margin-bottom: 6px;">
+    <h3 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: #00f2fe; display: flex; align-items: center; gap: 8px;">
+        <span>⚡ Explore</span>
+    </h3>
+</div>
+""", unsafe_allow_html=True)
+
+nav_page = st.radio(
+    "⚡ Explore",
+    [
+        "🏠 Home & Overview",
+        "⚡ Try Live Demos",
+        "🛠️ Services & What I Build",
+        "💡 How It Works & FAQ"
+    ],
+    index=0,
+    horizontal=True,
+    label_visibility="collapsed"
+)
+st.markdown("<div style='margin-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);'></div>", unsafe_allow_html=True)
 
 
 # ==========================================
