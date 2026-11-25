@@ -784,6 +784,13 @@ if "lead_count" not in st.session_state:
 # ==========================================
 # 💬 AURA AI CHAT DIALOG (MODAL & CORNER WIDGET)
 # ==========================================
+def stream_response_chunks(text: str, delay: float = 0.025):
+    """Yields text in natural word/whitespace chunks with a typewriter delay."""
+    for token in re.findall(r'\S+\s*|\s+', text):
+        yield token
+        time.sleep(delay)
+
+
 @st.dialog("🤖 Aura AI • 24/7 Client Concierge", width="small")
 def open_aura_chat_dialog():
     # Top Status & Clear Chat bar
@@ -850,8 +857,8 @@ def open_aura_chat_dialog():
                 st.markdown('<div class="assistant-msg-marker"></div>', unsafe_allow_html=True)
                 with st.spinner("Analyzing with Aura AI..."):
                     reply = generate_agent_response(prompt, st.session_state.messages)
-                    st.markdown(reply)
-                    st.caption(f"🕒 {current_time} • Verified by Aura Engine")
+                st.write_stream(stream_response_chunks(reply))
+                st.caption(f"🕒 {current_time} • Verified by Aura Engine")
         # 3. Save Assistant Message to state
         st.session_state.messages.append({
             "role": "assistant",
