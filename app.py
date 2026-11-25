@@ -69,11 +69,17 @@ st.markdown("""
     }
 
     /* Universal Radio & Navigation Pills */
+    [role="radiogroup"] {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+
     [role="radiogroup"] label {
         background: rgba(255, 255, 255, 0.04);
         padding: 9px 16px;
         border-radius: 8px;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         border: 1px solid rgba(255, 255, 255, 0.07);
         transition: all 0.2s ease;
     }
@@ -86,6 +92,28 @@ st.markdown("""
     [role="radiogroup"] label div p {
         color: #f1f5f9 !important;
         font-weight: 500 !important;
+    }
+
+    /* Top Sticky Navigation Bar */
+    [data-testid="stHeader"] {
+        background: rgba(9, 13, 22, 0.9) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    .st-key-top_sticky_nav {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 2.875rem !important;
+        z-index: 990 !important;
+        background: rgba(11, 17, 32, 0.95) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        padding: 12px 18px !important;
+        border-radius: 14px !important;
+        border: 1px solid rgba(56, 189, 248, 0.25) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.1) !important;
+        margin-bottom: 24px !important;
     }
 
     /* Input Fields & Labels */
@@ -901,29 +929,29 @@ with st.sidebar:
 
 
 # ==========================================
-# ⚡ TOP NAVIGATION HEADER (EXPLORE)
+# ⚡ TOP STICKY NAVIGATION HEADER (EXPLORE)
 # ==========================================
-st.markdown("""
-<div style="margin-bottom: 6px;">
-    <h3 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: #00f2fe; display: flex; align-items: center; gap: 8px;">
-        <span>⚡ Explore</span>
-    </h3>
-</div>
-""", unsafe_allow_html=True)
+with st.container(key="top_sticky_nav"):
+    st.markdown("""
+    <div style="margin-bottom: 6px;">
+        <h3 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: #00f2fe; display: flex; align-items: center; gap: 8px;">
+            <span>⚡ Explore</span>
+        </h3>
+    </div>
+    """, unsafe_allow_html=True)
 
-nav_page = st.radio(
-    "⚡ Explore",
-    [
-        "🏠 Home & Overview",
-        "⚡ Try Live Demos",
-        "🛠️ Services & What I Build",
-        "💡 How It Works & FAQ"
-    ],
-    index=0,
-    horizontal=True,
-    label_visibility="collapsed"
-)
-st.markdown("<div style='margin-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);'></div>", unsafe_allow_html=True)
+    nav_page = st.radio(
+        "⚡ Explore",
+        [
+            "🏠 Home & Overview",
+            "⚡ Try Live Demos",
+            "🛠️ Services & What I Build",
+            "💡 How It Works & FAQ"
+        ],
+        index=0,
+        horizontal=True,
+        label_visibility="collapsed"
+    )
 
 
 # ==========================================
