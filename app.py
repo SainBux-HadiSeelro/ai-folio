@@ -549,9 +549,7 @@ KNOWLEDGE_BASE = {
 # 🤖 INTELLIGENT AGENT ENGINE (24/7 OFFLINE & ONLINE)
 # ==========================================
 def get_gemini_api_key() -> str:
-    """Retrieve Gemini API key from session state, Streamlit secrets, or environment."""
-    if st.session_state.get("user_gemini_key"):
-        return st.session_state.user_gemini_key.strip()
+    """Retrieve Gemini API key from Streamlit secrets or environment."""
     try:
         if "GEMINI_API_KEY" in st.secrets:
             return st.secrets["GEMINI_API_KEY"].strip()
@@ -801,14 +799,6 @@ def open_aura_chat_dialog():
     with col_hdr_action:
         if len(st.session_state.messages) > 1:
             st.button("🧹 Clear Chat", key="dlg_clear_chat_top", on_click=reset_aura_chat, use_container_width=True, help="Clear chat and start fresh")
-    
-    # Optional Live Gemini Key expander
-    with st.expander("🔑 AI Mode: Live Gemini / Knowledge Base", expanded=False):
-        st.caption("Aura operates 24/7. Add a free Gemini API key (or set `GEMINI_API_KEY` in Streamlit Secrets) to chat live with LLM:")
-        user_key = st.text_input("Gemini API Key:", value=st.session_state.get("user_gemini_key", ""), type="password", placeholder="AIzaSy...", key="inp_gemini_key")
-        if user_key and user_key != st.session_state.get("user_gemini_key", ""):
-            st.session_state.user_gemini_key = user_key
-            st.success("API Key connected!")
     
     # Message History Container (Aesthetic, Compact & Scrollable)
     msg_box = st.container(height=300)
