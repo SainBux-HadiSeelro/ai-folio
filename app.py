@@ -94,26 +94,42 @@ st.markdown("""
         font-weight: 500 !important;
     }
 
-    /* Top Sticky Navigation Bar */
+    /* Top Fixed Sticky Navigation Bar (Permanently Fixed at Top on Scroll) */
     [data-testid="stHeader"] {
-        background: rgba(9, 13, 22, 0.9) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
+        background: rgba(9, 13, 22, 0.92) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
     }
 
     .st-key-top_sticky_nav {
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        top: 2.875rem !important;
-        z-index: 990 !important;
-        background: rgba(11, 17, 32, 0.95) !important;
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
-        padding: 12px 18px !important;
+        position: fixed !important;
+        top: 3.1rem !important;
+        left: 1.5rem !important;
+        right: 1.5rem !important;
+        max-width: 1100px !important;
+        margin: 0 auto !important;
+        z-index: 9999 !important;
+        background: rgba(11, 17, 32, 0.96) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+        padding: 10px 18px !important;
         border-radius: 14px !important;
-        border: 1px solid rgba(56, 189, 248, 0.25) !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.1) !important;
-        margin-bottom: 24px !important;
+        border: 1px solid rgba(56, 189, 248, 0.3) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.15) !important;
+        box-sizing: border-box !important;
+    }
+
+    @media (min-width: 992px) {
+        [data-testid="stSidebar"][aria-expanded="true"] ~ section[data-testid="stMain"] .st-key-top_sticky_nav,
+        section:has([data-testid="stSidebar"][aria-expanded="true"]) .st-key-top_sticky_nav {
+            left: calc(21rem + 2rem) !important;
+            right: 2rem !important;
+        }
+    }
+
+    /* Provide clean top spacing so page content starts neatly below fixed header */
+    .block-container {
+        padding-top: 9.8rem !important;
     }
 
     /* Input Fields & Labels */
