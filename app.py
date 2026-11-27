@@ -266,24 +266,24 @@ st.markdown("""
        ======================================================== */
     /* Base Chat Message */
     [data-testid="stChatMessage"] {
-        padding: 12px 16px !important;
-        margin-bottom: 12px !important;
+        padding: 10px 14px !important;
+        margin-bottom: 10px !important;
         transition: all 0.2s ease !important;
     }
 
-    /* 👤 USER MESSAGE BUBBLE: Right Side, Vibrant Sapphire Gradient */
+    /* 👤 USER MESSAGE BUBBLE: Right Side, Clean Modern Accent */
     [data-testid="stChatMessage"]:has(.user-msg-marker),
     [data-testid="stChatMessage"]:has([aria-label*="user"]),
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
         flex-direction: row-reverse !important;
-        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
-        border: 1px solid rgba(56, 189, 248, 0.45) !important;
-        border-radius: 18px 18px 4px 18px !important;
+        background: #0284c7 !important;
+        border: 1px solid rgba(56, 189, 248, 0.35) !important;
+        border-radius: 16px 16px 4px 16px !important;
         margin-left: auto !important;
         margin-right: 0 !important;
         width: fit-content !important;
-        max-width: 82% !important;
-        box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35) !important;
+        max-width: 84% !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
     }
 
     [data-testid="stChatMessage"]:has(.user-msg-marker) p,
@@ -296,39 +296,39 @@ st.markdown("""
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) span {
         color: #ffffff !important;
         font-weight: 500 !important;
-        font-size: 0.95rem !important;
-        line-height: 1.55 !important;
+        font-size: 0.92rem !important;
+        line-height: 1.5 !important;
     }
 
     [data-testid="stChatMessage"]:has(.user-msg-marker) [data-testid="stChatMessageAvatarCustom"],
     [data-testid="stChatMessage"]:has([aria-label*="user"]) [data-testid="stChatMessageAvatarCustom"],
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
-        background: rgba(255, 255, 255, 0.22) !important;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
         border-radius: 50% !important;
     }
 
     [data-testid="stChatMessage"]:has(.user-msg-marker) [data-testid="stCaptionContainer"] p,
     [data-testid="stChatMessage"]:has([aria-label*="user"]) [data-testid="stCaptionContainer"] p {
-        color: rgba(255, 255, 255, 0.8) !important;
+        color: rgba(255, 255, 255, 0.75) !important;
         font-size: 0.72rem !important;
         text-align: right !important;
         margin-top: 4px !important;
     }
 
-    /* 🤖 ASSISTANT (AURA) BUBBLE: Left Side, Sleek Cyber Dark-Slate Card */
+    /* 🤖 ASSISTANT (AURA) BUBBLE: Left Side, Modern Glass Slate */
     [data-testid="stChatMessage"]:has(.assistant-msg-marker),
     [data-testid="stChatMessage"]:has([aria-label*="assistant"]),
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) {
         flex-direction: row !important;
-        background: linear-gradient(135deg, #111a2e 0%, #0d1527 100%) !important;
-        border: 1px solid rgba(56, 189, 248, 0.28) !important;
-        border-radius: 18px 18px 18px 4px !important;
+        background: rgba(17, 26, 46, 0.85) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 16px 16px 16px 4px !important;
         margin-right: auto !important;
         margin-left: 0 !important;
         width: fit-content !important;
         max-width: 88% !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(56, 189, 248, 0.05) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
     }
 
     [data-testid="stChatMessage"]:has(.assistant-msg-marker) p,
@@ -337,57 +337,56 @@ st.markdown("""
     [data-testid="stChatMessage"]:has([aria-label*="assistant"]) li,
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) p,
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) li {
-        color: #f1f5f9 !important;
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
+        color: #e2e8f0 !important;
+        font-size: 0.92rem !important;
+        line-height: 1.55 !important;
     }
 
     [data-testid="stChatMessage"]:has(.assistant-msg-marker) strong,
     [data-testid="stChatMessage"]:has([aria-label*="assistant"]) strong,
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) strong {
         color: #38bdf8 !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
     }
 
     [data-testid="stChatMessage"]:has(.assistant-msg-marker) [data-testid="stChatMessageAvatarCustom"],
     [data-testid="stChatMessage"]:has([aria-label*="assistant"]) [data-testid="stChatMessageAvatarCustom"],
     [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) {
-        background: rgba(14, 165, 233, 0.15) !important;
-        border: 1px solid rgba(56, 189, 248, 0.45) !important;
+        background: rgba(14, 165, 233, 0.12) !important;
+        border: 1px solid rgba(56, 189, 248, 0.3) !important;
         border-radius: 50% !important;
-        box-shadow: 0 0 12px rgba(56, 189, 248, 0.3) !important;
     }
 
     [data-testid="stChatMessage"]:has(.assistant-msg-marker) [data-testid="stCaptionContainer"] p,
     [data-testid="stChatMessage"]:has([aria-label*="assistant"]) [data-testid="stCaptionContainer"] p {
-        color: #94a3b8 !important;
+        color: #64748b !important;
         font-size: 0.72rem !important;
         margin-top: 4px !important;
     }
 
     /* Modal / Dialog Enhancements */
     div[data-testid="stDialog"] > div {
-        background-color: #0c1222 !important;
-        border: 1px solid rgba(56, 189, 248, 0.35) !important;
-        border-radius: 18px !important;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.15) !important;
+        background: #0b1120 !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
     }
 
     /* Quick question inquiry pill buttons in Dialog */
     div[data-testid="stDialog"] .stButton > button {
         background: rgba(255, 255, 255, 0.04) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 8px !important;
-        color: #cbd5e1 !important;
-        font-size: 0.8rem !important;
-        font-weight: 600 !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 9999px !important;
+        color: #94a3b8 !important;
+        font-size: 0.78rem !important;
+        font-weight: 500 !important;
         padding: 6px 12px !important;
         transition: all 0.2s ease !important;
     }
 
     div[data-testid="stDialog"] .stButton > button:hover {
-        background: rgba(56, 189, 248, 0.15) !important;
-        border-color: rgba(56, 189, 248, 0.45) !important;
+        background: rgba(56, 189, 248, 0.1) !important;
+        border-color: rgba(56, 189, 248, 0.35) !important;
         color: #38bdf8 !important;
         transform: translateY(-1px) !important;
     }
@@ -457,7 +456,7 @@ st.markdown("""
         border-radius: 10px !important;
     }
 
-    /* Floating Corner Chat Widget Button (Guaranteed Right Side) */
+    /* Floating Corner Chat Widget Button (Clean Modern Glass Pill) */
     .st-key-floating_corner_chat {
         position: fixed !important;
         bottom: 70px !important;
@@ -488,17 +487,20 @@ st.markdown("""
         left: auto !important;
         width: auto !important;
         margin: 0 !important;
-        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
-        color: #ffffff !important;
-        border: 1px solid rgba(56, 189, 248, 0.5) !important;
+        background: rgba(15, 23, 42, 0.92) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        color: #f8fafc !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
         border-radius: 9999px !important;
-        padding: 10px 20px !important;
-        font-size: 0.9rem !important;
-        font-weight: 700 !important;
-        box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5) !important;
+        padding: 9px 18px !important;
+        font-size: 0.88rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.01em !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
         display: flex !important;
         align-items: center !important;
-        gap: 6px !important;
+        gap: 8px !important;
         cursor: pointer !important;
         pointer-events: auto !important;
         transition: all 0.25s ease !important;
@@ -506,8 +508,11 @@ st.markdown("""
 
     .st-key-fab_corner_chat > button:hover,
     .st-key-floating_corner_chat button:hover {
-        transform: scale(1.05) translateY(-2px) !important;
-        box-shadow: 0 12px 32px rgba(56, 189, 248, 0.65) !important;
+        transform: translateY(-2px) !important;
+        background: rgba(22, 33, 56, 0.96) !important;
+        border-color: rgba(56, 189, 248, 0.45) !important;
+        color: #38bdf8 !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 16px rgba(56, 189, 248, 0.2) !important;
     }
 
     /* Compact Dialog Aligned Towards Right on Desktop */
@@ -836,15 +841,15 @@ def stream_response_chunks(text: str, delay: float = 0.025):
         time.sleep(delay)
 
 
-@st.dialog("🤖 Aura AI • 24/7 Client Concierge", width="small")
+@st.dialog("✨ Aura AI Assistant", width="small")
 def open_aura_chat_dialog():
     # Top Status & Clear Chat bar
     col_hdr_status, col_hdr_action = st.columns([0.65, 0.35], vertical_alignment="center")
     with col_hdr_status:
         st.markdown(
-            "<div style='display:flex; align-items:center; gap:6px; margin-top:-6px; margin-bottom:6px;'>"
-            "<span style='display:inline-block; width:8px; height:8px; background:#10b981; border-radius:50%; box-shadow:0 0 8px #10b981;'></span>"
-            "<span style='color:#34d399; font-weight:600; font-size:0.82rem;'>Aura Active • Ready to Help</span>"
+            "<div style='display:flex; align-items:center; gap:6px; margin-top:-4px; margin-bottom:8px;'>"
+            "<span style='display:inline-block; width:7px; height:7px; background:#10b981; border-radius:50%;'></span>"
+            "<span style='color:#34d399; font-weight:600; font-size:0.8rem;'>Online • Ready to help</span>"
             "</div>",
             unsafe_allow_html=True
         )
@@ -1330,5 +1335,5 @@ st.markdown("""
 # 💬 FLOATING CORNER CHATBOT WIDGET
 # ==========================================
 with st.container(key="floating_corner_chat"):
-    if st.button("🤖 Chat with AI Helper", key="fab_corner_chat"):
+    if st.button("✨ Chat with AI", key="fab_corner_chat"):
         open_aura_chat_dialog()
