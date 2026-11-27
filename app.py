@@ -963,7 +963,8 @@ with st.container(key="top_sticky_nav"):
             "🏠 Home & Overview",
             "⚡ Try Live Demos",
             "🛠️ Services & What I Build",
-            "💡 How It Works & FAQ"
+            "💡 How It Works & FAQ",
+            "📑 Technical Specs"
         ],
         index=0,
         horizontal=True,
@@ -1319,6 +1320,109 @@ elif nav_page == "💡 How It Works & FAQ":
             "**No.** We install strict guardrails so the AI only answers using your verified business policies, "
             "catalogs, and documents. If it ever encounters an unknown question, it politely asks for the customer's email or forwards it to your team."
         )
+
+
+# ==========================================
+# 📑 PAGE 5: TECHNICAL SPECS & ARCHITECTURE
+# ==========================================
+elif nav_page == "📑 Technical Specs":
+    st.title("📑 System Architecture & Technical Specifications")
+    st.write("Complete technical architecture, multi-agent orchestration topologies, and security protocols.")
+
+    spec_tab1, spec_tab2, spec_tab3, spec_tab4 = st.tabs([
+        "🏛️ System Architecture",
+        "🤖 24/7 Aura Agent Specs",
+        "🔒 Security & Guardrails",
+        "💻 Tech Stack & Verification"
+    ])
+
+    with spec_tab1:
+        st.subheader("🏛️ Architecture Topology")
+        st.code("""
++---------------------------------------------------------------------------------+
+|                               CLIENT INTERFACE (UI)                             |
+|       Streamlit 1.42+ | Custom Cyber Dark CSS | Real-time Telemetry            |
++---------------------------------------------------------------------------------+
+                                     |
+                                     v
++---------------------------------------------------------------------------------+
+|                       ORCHESTRATION & STATE MANAGEMENT                          |
+|  - Session Memory Manager (st.session_state)                                    |
+|  - Context Injector & Prompt Engineering Pipeline                              |
+|  - Lead Qualification & State Machine                                           |
++---------------------------------------------------------------------------------+
+          |                                  |                        |
+          v                                  v                        v
++--------------------+            +--------------------+    +--------------------+
+|   24/7 AURA AGENT  |            | WORKFLOW SIMULATOR |    |  METRICS & TELEMETRY|
+| - Intent Detection |            | - Agent Swarms     |    | - Token ROI Engine |
+| - Knowledge Base   |            | - Tool Execution   |    | - Health Telemetry |
+| - Lead Intake      |            | - Step Streaming   |    | - Live Benchmarks  |
++--------------------+            +--------------------+    +--------------------+
+          |                                  |
+          +-----------------+----------------+
+                            v
++---------------------------------------------------------------------------------+
+|                             FOUNDATION MODEL LAYER                              |
+|  - Default: Deterministic Agent Reasoning Engine (High Speed, Zero Latency)     |
+|  - Extensible: Google Gemini 1.5/Flash / OpenAI / Claude API Bridge             |
++---------------------------------------------------------------------------------+
+        """, language="text")
+
+        st.markdown("""
+        <div class="project-card" style="margin-top: 14px;">
+            <h4 style="color: #00f2fe; margin-top:0;">⚡ Decoupled Modular Design</h4>
+            <p style="color: #cbd5e1; font-size: 0.95rem;">
+                The platform is engineered around decoupled layers: an ephemeral modern client presentation layer,
+                a deterministic query intent router, a multi-agent simulation sandbox, and a resilient foundation model adapter.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with spec_tab2:
+        st.subheader("🤖 24/7 Autonomous Client Agent Specs")
+        st.markdown("""
+        - **Agent Identifier:** `Aura AI`
+        - **Role:** 24/7 Autonomous Client Concierge & Technical Qualification Agent.
+        - **Inference Pipeline:**
+          1. **Primary Route:** Google Gemini 1.5 Flash API via REST endpoint with sub-second response streaming.
+          2. **Deterministic Fallback:** 11-category rule-based NLP intent classification engine ensuring **100% uptime** with zero external API dependencies.
+        - **Knowledge Base Scope:**
+          - Full architectural expertise of **Hadi Seelro** (LangGraph, CrewAI, RAG pipelines, FastAPI, Streamlit).
+          - Verified portfolio catalog, project delivery timelines, and transparent pricing benchmarks.
+          - Autonomous lead intake buffer with regex email extraction and validation.
+        - **UI Architecture:**
+          - Floating modern glassmorphic pill button (`bottom: 70px`, `backdrop-filter: blur(14px)`).
+          - Streamlined modal dialog with typewriter streaming effects and quick inquiry chips.
+        """)
+
+    with spec_tab3:
+        st.subheader("🔒 Enterprise Security & Guardrails")
+        st.markdown("""
+        1. **Zero Secret Leakage:** No sensitive API keys or credentials hardcoded; securely extracted via `st.secrets` or environment variables.
+        2. **Input Sanitization:** Chat inputs sanitized to neutralize script injection and payload attacks.
+        3. **Deterministic Guardrails:** Strict knowledge boundary limits hallucinations to verified factual data only.
+        4. **Session Isolation:** Interaction histories are strictly partitioned per client browser session with zero cross-tenant leakage.
+        """)
+
+    with spec_tab4:
+        st.subheader("💻 Technical Stack & Verification Matrix")
+        st.markdown("""
+        | Layer | Technology | Specification / Version |
+        | :--- | :--- | :--- |
+        | **Language** | Python | `>=3.10, <=3.13` |
+        | **Frontend Framework** | Streamlit | `^1.42.0` |
+        | **UI Theme** | Custom Modern CSS | Cyber-Glassmorphism, CSS Grid/Flexbox |
+        | **State Management** | Streamlit SessionState | In-memory thread-safe state container |
+        | **Data Layer** | Pandas | `>=2.0.0` |
+        | **LLM Provider** | Google Gemini / Fallback NLP | REST API (`gemini-1.5-flash`) + Local Intent Engine |
+
+        #### ✅ Quality Assurance Checklist:
+        - [x] Streamlit runtime verified on Python 3.12.
+        - [x] Zero-dependency fallback tested and verified with zero network latency.
+        - [x] Responsive layout certified across mobile, tablet, and desktop viewports.
+        - [x] Frosted glass corner widget verified with non-overlapping bottom offset (`70px`).
+        """)
 
 
 # ==========================================
