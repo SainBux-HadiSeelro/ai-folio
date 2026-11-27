@@ -460,7 +460,7 @@ st.markdown("""
     /* Floating Corner Chat Widget Button (Guaranteed Right Side) */
     .st-key-floating_corner_chat {
         position: fixed !important;
-        bottom: 24px !important;
+        bottom: 70px !important;
         right: 24px !important;
         left: auto !important;
         width: auto !important;
@@ -472,7 +472,7 @@ st.markdown("""
 
     .st-key-fab_corner_chat {
         position: fixed !important;
-        bottom: 24px !important;
+        bottom: 70px !important;
         right: 24px !important;
         left: auto !important;
         width: auto !important;
@@ -483,7 +483,7 @@ st.markdown("""
     .st-key-fab_corner_chat > button,
     .st-key-floating_corner_chat button {
         position: fixed !important;
-        bottom: 24px !important;
+        bottom: 70px !important;
         right: 24px !important;
         left: auto !important;
         width: auto !important;
