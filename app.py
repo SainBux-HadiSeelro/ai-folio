@@ -931,10 +931,6 @@ with st.sidebar:
         </div>
     """, unsafe_allow_html=True)
     
-    # Direct Chat Trigger in Sidebar Corner
-    if st.button("💬 Chat with AI Assistant", key="sidebar_chat_btn", use_container_width=True, type="primary"):
-        open_aura_chat_dialog()
-        
     st.markdown("---")
     
     # Simple Trust & Reliability Badges
