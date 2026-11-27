@@ -8,7 +8,7 @@
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-folio.streamlit.app/)
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.42+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
-[![Gemini AI](https://img.shields.io/badge/Google_Gemini-2.5_%2F_Flash-8E75C2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Gemini AI](https://img.shields.io/badge/Google_Gemini-1.5_%2F_Flash-8E75C2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 <br/>
@@ -18,11 +18,11 @@
 ### 🌐 **Live Interactive Web Application**
 ### 👉 **[https://ai-folio.streamlit.app/](https://ai-folio.streamlit.app/)** 👈
 
-*Experience the 24/7 live AI concierge, run interactive business automation simulations, and calculate enterprise ROI in real-time.*
+*Experience the 24/7 live AI concierge, run interactive business automation simulations, inspect technical architecture specs, and calculate enterprise ROI in real-time.*
 
 ---
 
-[🚀 Launch Live App](https://ai-folio.streamlit.app/) • [✨ Core Features](#-core-features) • [🏛️ System Architecture](#️-system-architecture) • [⚡ Quickstart](#-quickstart-guide) • [📬 Contact Hadi](#-contact--hire)
+[🚀 Launch Live App](https://ai-folio.streamlit.app/) • [✨ Core Features](#-core-features) • [🏛️ System Architecture](#️-system-architecture) • [📑 Technical Specs](#-technical-specifications) • [⚡ Quickstart](#-quickstart-guide) • [📬 Contact Hadi](#-contact--hire)
 
 </div>
 
@@ -30,13 +30,14 @@
 
 ## 🌟 Executive Summary
 
-Unlike standard static portfolio websites, **AI-Folio** is itself an **active, production-grade autonomous AI application**. Engineered specifically for businesses and non-technical stakeholders, it demonstrates how **Agentic AI** automates daily operations, drives lead conversion, and reduces manual overhead.
+Unlike standard static portfolio websites, **AI-Folio** is itself an **active, production-grade autonomous AI application**. Engineered specifically for businesses and technical stakeholders, it demonstrates how **Agentic AI** automates daily operations, drives lead conversion, and reduces manual overhead.
 
 ### 🎯 Key Highlights:
-- 🤖 **Aura AI Client Concierge (24/7)**: An embedded autonomous assistant with comprehensive knowledge of Hadi's engineering capabilities, case studies, and services. Features dual-colored chat bubbles, mobile-responsive docking, and instant history clearing.
-- ⚡ **Interactive Business Automation Lab**: Live simulation of autonomous multi-agent pipelines (News tracking, competitive intelligence, and automated briefings).
+- 🤖 **Aura AI Client Concierge (24/7)**: An embedded autonomous assistant with comprehensive knowledge of Hadi's engineering capabilities, case studies, and services. Features a modernized frosted glass pill trigger (`✨ Chat with AI`), streamlined modal dialog, dual-colored message cards, and instant history clearing.
+- 📑 **In-App Technical Specifications & Architecture**: Dedicated interactive view displaying end-to-end system topologies, component specifications, security guardrails, and QA verification matrices.
+- ⚡ **Interactive Business Automation Lab**: Live simulation of autonomous multi-agent pipelines (Information Finder $\to$ Policy Checker $\to$ Action & Response).
 - 💰 **Business ROI & Time-Savings Calculator**: Interactive tool helping business owners quantify exactly how many hours and dollars AI automation saves every month.
-- 🎨 **Cyber-Glass Dark Canvas**: High-contrast, responsive glassmorphism UI engineered with custom CSS, dark-mode tokens, and accessibility standards.
+- 🎨 **Modern Cyber-Glass Dark Canvas**: High-contrast, responsive glassmorphism UI engineered with custom CSS, dark-mode tokens, accessibility standards, and clean mobile docking.
 
 ---
 
@@ -44,10 +45,11 @@ Unlike standard static portfolio websites, **AI-Folio** is itself an **active, p
 
 | Feature | Engineering Implementation | Business Value |
 | :--- | :--- | :--- |
-| **🤖 Aura AI Concierge** | Dual-mode hybrid engine: Live Google Gemini LLM REST API + local intent classifier with persistent session memory. | 24/7 immediate visitor qualification, automated inquiry handling, zero lead drop-off. |
-| **⚡ Multi-Agent Swarm Lab** | 3-stage agent pipeline (`Researcher` $\to$ `Analyst` $\to$ `Synthesizer`) demonstrating autonomous tool execution. | Replaces 15+ hours/week of manual research and report generation. |
+| **🤖 Aura AI Concierge** | Dual-mode hybrid engine: Live Google Gemini LLM REST API + local intent classifier with persistent session memory and modern glass UI. | 24/7 immediate visitor qualification, automated inquiry handling, zero lead drop-off. |
+| **📑 Technical Specs** | Interactive 4-tab documentation dashboard embedded directly into the application. | Complete architectural transparency for enterprise technical diligence and recruiters. |
+| **⚡ Multi-Agent Swarm Lab** | 3-stage agent pipeline (`Information Finder` $\to$ `Policy Checker` $\to$ `Action & Response`) demonstrating autonomous execution. | Replaces 15+ hours/week of manual research and verification. |
 | **📊 ROI Savings Calculator** | Dynamic mathematical model evaluating staff hourly rates, recurring hours, and token overhead. | Quantifies upfront ROI and cost justification for executive decision-makers. |
-| **🎨 Responsive Cyber UI** | Custom CSS layout with pinned floating launcher, dual-colored message bubbles, and mobile-first responsiveness. | Seamless user experience for non-technical clients across desktop and mobile. |
+| **🎨 Modern Glass UI** | Custom CSS layout with pinned floating frosted glass launcher, dual-colored message bubbles, and mobile-first responsiveness. | Seamless user experience for non-technical clients across desktop and mobile. |
 
 ---
 
@@ -60,8 +62,9 @@ flowchart TD
     subgraph ClientLayer["🖥️ Client Presentation Layer"]
         UI["Streamlit 1.42+ Web Interface"]
         CSS["Cyber-Glass Theme & Custom CSS Tokens"]
-        FabBtn["Floating Corner AI Launcher"]
-        Dialog["Aura Concierge Modal (Dual-Bubble UI)"]
+        FabBtn["Frosted Glass AI Pill (✨ Chat with AI)"]
+        Dialog["Aura Concierge Modal (Glass Cards)"]
+        Nav["5-View Navigation Header"]
     end
 
     subgraph OrchestrationLayer["⚙️ State & Orchestration Layer"]
@@ -71,16 +74,18 @@ flowchart TD
     end
 
     subgraph InferenceLayer["🧠 Dual-Mode AI Inference Engine"]
-        Gemini["Google Gemini 2.5 Live REST API"]
+        Gemini["Google Gemini 1.5 Flash REST API"]
         NLP["Local Deterministic Knowledge Engine"]
         KB[("Domain Knowledge Base & Specs")]
     end
 
-    subgraph Simulations["🧪 Interactive Business Demos"]
-        Swarm["Multi-Agent Swarm Pipeline"]
+    subgraph Simulations["🧪 Interactive Business Demos & Specs"]
+        Swarm["Multi-Agent Workflow Simulation"]
         Calc["ROI & Cost-Savings Calculator"]
+        Specs["In-App Architecture Specifications"]
     end
 
+    UI --> Nav
     UI --> FabBtn --> Dialog
     Dialog --> SM
     SM --> Router
@@ -88,21 +93,30 @@ flowchart TD
     Router -->|Fallback / Default| NLP
     NLP <--> KB
     Gemini <--> KB
-    UI --> Simulations
+    Nav --> Simulations
     Simulations --> Swarm
     Simulations --> Calc
+    Simulations --> Specs
 ```
+
+---
+
+## 📑 Technical Specifications
+
+For full engineering details, architectural topologies, and verification criteria, refer to:
+- **In-App Dashboard:** Click on **`📑 Technical Specs`** in the top navigation bar.
+- **Deep-Dive Document:** [specs/project-specs.md](specs/project-specs.md) (Version: `v1.1.0-PROD`).
 
 ---
 
 ## 💻 Technology Stack
 
 ```
-Runtime Environment:   Python 3.11
+Runtime Environment:   Python 3.11 / 3.12
 Application Framework: Streamlit >= 1.35.0 (Running 1.42+)
-AI & LLM Integration:  Google Gemini REST API, Custom NLP Inference
+AI & LLM Integration:  Google Gemini 1.5 Flash REST API + Deterministic NLP Engine
 Data Processing:       Pandas >= 2.0.0
-Styling & Theming:     Custom CSS3, Modern Glassmorphism, Responsive Flexbox
+Styling & Theming:     Custom Modern CSS, Frosted Glassmorphism, Responsive Flexbox
 Deployment Platform:   Streamlit Community Cloud (Continuous Deployment via GitHub)
 ```
 
@@ -146,7 +160,6 @@ To enable live generative LLM responses, set your Google Gemini API key:
   ```toml
   GEMINI_API_KEY = "AIzaSy..."
   ```
-- **In-App:** Enter your key directly in Aura's chat settings expander.
 - **On Streamlit Cloud:** Add `GEMINI_API_KEY` under **App Settings $\to$ Secrets**.
 
 ---
@@ -158,17 +171,18 @@ ai-folio/
 ├── .streamlit/
 │   └── config.toml          # Custom dark mode palette & server configuration
 ├── .python-version          # Pinned to Python 3.11 for cloud build stability
-├── app.py                   # Main application, UI components & Aura AI engine
+├── app.py                   # Main application, modern UI components & Aura AI engine
 ├── requirements.txt         # Production-locked dependencies
 ├── README.md                # Comprehensive documentation
 └── specs/
-    └── project-specs.md     # Deep-dive architecture specifications
+    └── project-specs.md     # Deep-dive architecture specifications (v1.1.0-PROD)
 ```
 
 ---
 
 ## 🛡️ Enterprise Security & Guardrails
 
+- **Zero Secret Leakage:** No sensitive API keys or credentials hardcoded; securely extracted via `st.secrets` or environment variables.
 - **Zero Data Leakage:** Chat sessions reside strictly in client-side ephemeral memory (`st.session_state`) with zero cross-tenant bleed.
 - **Strict Guardrails:** The local deterministic engine enforces factual boundaries directly from Hadi's verified business knowledge base, preventing hallucinations.
 - **Graceful Fallback:** If the external LLM API encounters network latency or rate-limiting, the system automatically falls back to the deterministic local engine without user disruption.
